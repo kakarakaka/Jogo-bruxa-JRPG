@@ -4,16 +4,26 @@ using UnityEngine.InputSystem;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+
     public GameObject characterPanel;
-    public GameObject mainButtons;
+
     public GameObject statusPanel;
+
+    public GameObject skillsPanel;
+
+    public GameObject mainButtons;
 
     private bool paused = false;
 
     void Start()
     {
         pauseMenuUI.SetActive(false);
+
         characterPanel.SetActive(false);
+
+        statusPanel.SetActive(false);
+
+        skillsPanel.SetActive(false);
     }
 
     void Update()
@@ -45,25 +55,22 @@ public class PauseMenu : MonoBehaviour
         paused = true;
     }
 
+    // PERSONAGENS
     public void OpenCharacters()
     {
-        if (characterPanel != null)
-        {
-            mainButtons.SetActive(false);
-            characterPanel.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("CharacterPanel não foi atribuído!");
-        }
+        mainButtons.SetActive(false);
+
+        characterPanel.SetActive(true);
     }
 
     public void CloseCharacters()
     {
         characterPanel.SetActive(false);
+
         mainButtons.SetActive(true);
     }
 
+    // STATUS
     public void OpenStatus()
     {
         mainButtons.SetActive(false);
@@ -74,6 +81,21 @@ public class PauseMenu : MonoBehaviour
     public void CloseStatus()
     {
         statusPanel.SetActive(false);
+
+        mainButtons.SetActive(true);
+    }
+
+    // GOLPES
+    public void OpenSkills()
+    {
+        mainButtons.SetActive(false);
+
+        skillsPanel.SetActive(true);
+    }
+
+    public void CloseSkills()
+    {
+        skillsPanel.SetActive(false);
 
         mainButtons.SetActive(true);
     }
