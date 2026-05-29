@@ -17,6 +17,8 @@ public class CharacterStats : MonoBehaviour
 
     public int specialAttack = 15;
 
+    public int defense = 0;
+
     public int speed = 8;
 
     [Header("Skills")]

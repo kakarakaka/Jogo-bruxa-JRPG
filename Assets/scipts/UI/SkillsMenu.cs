@@ -180,7 +180,8 @@ public class SkillsMenu : MonoBehaviour
         if (typeText != null)
         {
             typeText.text =
-                "Tipo: " + skill.type;
+     "Tipo: " +
+     skill.skillType.ToString();
         }
 
         if (descriptionText != null)
