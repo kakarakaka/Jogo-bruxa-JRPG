@@ -1,8 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class BattleTextUI :
-    MonoBehaviour
+public class BattleTextUI : MonoBehaviour
 {
     public TextMeshProUGUI textUI;
 
@@ -26,12 +25,25 @@ public class BattleTextUI :
 
     public void Refresh()
     {
-        if (unit == null)
+        if (textUI == null)
             return;
+
+        if (unit == null)
+        {
+            textUI.text = "";
+            return;
+        }
 
         // PLAYER
         if (!unit.isEnemy)
         {
+            string status = "";
+
+            if (unit.IsDead())
+            {
+                status = "\nKO";
+            }
+
             textUI.text =
                 unit.UnitName
                 + "\nHP: "
@@ -39,20 +51,29 @@ public class BattleTextUI :
                 + "/"
                 + unit.MaxHP
                 + "\nMP: "
-                + unit.characterStats.maxMP
+                + unit.currentMP
                 + "/"
-                + unit.characterStats.maxMP;
+                + unit.MaxMP
+                + status;
         }
 
         // ENEMY
         else
         {
+            string status = "";
+
+            if (unit.IsDead())
+            {
+                status = "\nDERROTADO";
+            }
+
             textUI.text =
                 unit.UnitName
                 + "\nHP: "
                 + unit.currentHP
                 + "/"
-                + unit.MaxHP;
+                + unit.MaxHP
+                + status;
         }
     }
 }

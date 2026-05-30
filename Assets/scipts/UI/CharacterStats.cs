@@ -24,4 +24,39 @@ public class CharacterStats : MonoBehaviour
     [Header("Skills")]
     public List<Skill> skills =
         new List<Skill>();
+
+    void Awake()
+    {
+        AutoEquipSkills();
+    }
+
+    void AutoEquipSkills()
+    {
+        if (skills == null)
+            return;
+
+        int equippedCount = 0;
+
+        foreach (Skill skill in skills)
+        {
+            if (skill == null)
+                continue;
+
+            skill.equipped = false;
+        }
+
+        for (int i = 0;
+             i < skills.Count &&
+             equippedCount < 4;
+             i++)
+        {
+            if (skills[i] == null)
+                continue;
+
+            skills[i].equipped = true;
+
+            equippedCount++;
+        }
+    }
+
 }

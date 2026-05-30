@@ -11,17 +11,17 @@ public enum StatusEffectType
 {
     None,
 
-    AttackUp,
-    DefenseUp,
-    SpeedUp,
-
-    AttackDown,
-    DefenseDown,
-    SpeedDown,
-
     Poison,
+
     Burn,
-    Paralysis
+
+    Sleep,
+
+    Slow,
+
+    AttackUp,
+
+    DefenseUp
 }
 
 [System.Serializable]
@@ -33,13 +33,14 @@ public class Skill
     [TextArea]
     public string description;
 
-    [Header("Tipo")]
+    [Header("Battle")]
     public SkillType skillType;
 
-    [Header("Dano")]
     public int damage;
 
-    [Header("Status")]
+    public int mpCost;
+
+    [Header("Status Effect")]
     public StatusEffectType effectType;
 
     public int effectPower;

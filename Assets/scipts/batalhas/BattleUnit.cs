@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleUnit :
-    MonoBehaviour
+public class BattleUnit : MonoBehaviour
 {
     [Header("Tipo")]
     public bool isEnemy;
@@ -14,6 +13,8 @@ public class BattleUnit :
 
     [Header("Battle")]
     public int currentHP;
+
+    public int currentMP;
 
     public int bonusAttack;
 
@@ -34,9 +35,7 @@ public class BattleUnit :
         get
         {
             if (isEnemy)
-            {
                 return enemyStats.enemyName;
-            }
 
             return characterStats.characterName;
         }
@@ -47,11 +46,20 @@ public class BattleUnit :
         get
         {
             if (isEnemy)
-            {
                 return enemyStats.maxHP;
-            }
 
             return characterStats.maxHP;
+        }
+    }
+
+    public int MaxMP
+    {
+        get
+        {
+            if (isEnemy)
+                return 0;
+
+            return characterStats.maxMP;
         }
     }
 
@@ -60,13 +68,9 @@ public class BattleUnit :
         get
         {
             if (isEnemy)
-            {
-                return enemyStats.attack
-                    + bonusAttack;
-            }
+                return enemyStats.attack + bonusAttack;
 
-            return characterStats.attack
-                + bonusAttack;
+            return characterStats.attack + bonusAttack;
         }
     }
 
@@ -75,13 +79,9 @@ public class BattleUnit :
         get
         {
             if (isEnemy)
-            {
-                return enemyStats
-                    .specialAttack;
-            }
+                return enemyStats.specialAttack;
 
-            return characterStats
-                .specialAttack;
+            return characterStats.specialAttack;
         }
     }
 
@@ -90,13 +90,9 @@ public class BattleUnit :
         get
         {
             if (isEnemy)
-            {
-                return enemyStats.defense
-                    + bonusDefense;
-            }
+                return enemyStats.defense + bonusDefense;
 
-            return characterStats.defense
-                + bonusDefense;
+            return characterStats.defense + bonusDefense;
         }
     }
 
@@ -105,13 +101,9 @@ public class BattleUnit :
         get
         {
             if (isEnemy)
-            {
-                return enemyStats.speed
-                    + bonusSpeed;
-            }
+                return enemyStats.speed + bonusSpeed;
 
-            return characterStats.speed
-                + bonusSpeed;
+            return characterStats.speed + bonusSpeed;
         }
     }
 
@@ -120,22 +112,34 @@ public class BattleUnit :
         get
         {
             if (isEnemy)
-            {
-                return enemyStats
-                    .equippedSkills;
-            }
+                return enemyStats.equippedSkills;
 
             return characterStats.skills;
         }
     }
 
     // =========================
-    // START
+    // INICIALIZAÇÃO
     // =========================
 
-    void Start()
+    void Awake()
+    {
+        Initialize();
+    }
+
+    public void Initialize()
     {
         currentHP = MaxHP;
+
+        if (!isEnemy)
+        {
+            currentMP = MaxMP;
+        }
+
+        Debug.Log(
+            UnitName +
+            " iniciado com HP "
+            + currentHP);
     }
 
     // =========================
@@ -151,10 +155,86 @@ public class BattleUnit :
 
         Debug.Log(
             UnitName +
-            " recebeu "
-            + damage +
+            " recebeu " +
+            damage +
             " de dano!");
     }
+
+    // =========================
+    // HEAL
+    // =========================
+
+    public void Heal(int amount)
+    {
+        currentHP += amount;
+
+        currentHP =
+            Mathf.Min(
+                currentHP,
+                MaxHP);
+
+        Debug.Log(
+            UnitName +
+            " recuperou " +
+            amount +
+            " HP!");
+    }
+
+    // =========================
+    // MP
+    // =========================
+
+    public void UseMP(int amount)
+    {
+        if (isEnemy)
+            return;
+
+        currentMP -= amount;
+
+        currentMP =
+            Mathf.Max(currentMP, 0);
+    }
+
+    public void RecoverMP(int amount)
+    {
+        if (isEnemy)
+            return;
+
+        currentMP += amount;
+
+        currentMP =
+            Mathf.Min(
+                currentMP,
+                MaxMP);
+    }
+
+    public bool HasEnoughMP(int amount)
+    {
+        if (isEnemy)
+            return true;
+
+        return currentMP >= amount;
+    }
+
+    // =========================
+    // STATUS
+    // =========================
+
+    public void AddStatusEffect(
+        ActiveStatusEffect effect)
+    {
+        activeEffects.Add(effect);
+    }
+
+    public void RemoveStatusEffect(
+        ActiveStatusEffect effect)
+    {
+        activeEffects.Remove(effect);
+    }
+
+    // =========================
+    // CHECKS
+    // =========================
 
     public bool IsDead()
     {

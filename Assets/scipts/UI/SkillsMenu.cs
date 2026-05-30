@@ -239,6 +239,22 @@ public class SkillsMenu : MonoBehaviour
         // desequipar
         else
         {
+            int equippedCount = 0;
+
+            foreach (Skill skill in currentCharacter.skills)
+            {
+                if (skill.equipped)
+                    equippedCount++;
+            }
+
+            if (equippedCount <= 1)
+            {
+                Debug.Log(
+                    "O personagem precisa ter pelo menos 1 golpe equipado.");
+
+                return;
+            }
+
             selectedSkill.equipped = false;
         }
 

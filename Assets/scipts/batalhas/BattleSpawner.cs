@@ -1,93 +1,121 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleSpawner :
-    MonoBehaviour
+public class BattleSpawner : MonoBehaviour
 {
     [Header("Player Spawns")]
-    public List<Transform>
-        playerSpawns =
+    public List<Transform> playerSpawns =
         new List<Transform>();
 
     [Header("Enemy Spawns")]
-    public List<Transform>
-        enemySpawns =
+    public List<Transform> enemySpawns =
         new List<Transform>();
 
     [HideInInspector]
-    public List<BattleUnit>
-        playerUnits =
+    public List<BattleUnit> playerUnits =
         new List<BattleUnit>();
 
     [HideInInspector]
-    public List<BattleUnit>
-        enemyUnits =
+    public List<BattleUnit> enemyUnits =
         new List<BattleUnit>();
 
     void Awake()
     {
         SpawnPlayers();
-
         SpawnEnemies();
     }
 
-    // =========================
-    // PLAYERS
-    // =========================
-
     void SpawnPlayers()
     {
-        for (int i = 0;
-            i < BattleData
-            .playerParty.Count;
-            i++)
+        playerUnits.Clear();
+
+        if (BattleData.playerParty == null)
         {
+            Debug.LogError(
+                "playerParty NULL");
+
+            return;
+        }
+
+        int amount =
+            Mathf.Min(
+                BattleData.playerParty.Count,
+                playerSpawns.Count);
+
+        for (int i = 0; i < amount; i++)
+        {
+            if (BattleData.playerParty[i] == null)
+                continue;
+
             GameObject obj =
                 Instantiate(
-                    BattleData
-                    .playerParty[i],
-                    playerSpawns[i]
-                    .position,
+                    BattleData.playerParty[i],
+                    playerSpawns[i].position,
                     Quaternion.identity);
 
             BattleUnit unit =
-                obj.GetComponent
-                <BattleUnit>();
+     obj.GetComponent<BattleUnit>();
 
-            playerUnits.Add(unit);
+            if (unit != null)
+            {
+                unit.Initialize();
+                playerUnits.Add(unit);
+            }
         }
-    }
 
-    // =========================
-    // ENEMIES
-    // =========================
+        Debug.Log(
+            "Players spawnados: "
+            + playerUnits.Count);
+    }
 
     void SpawnEnemies()
     {
-        for (int i = 0;
-            i < BattleData
-            .enemyPrefabs.Count;
-            i++)
+        enemyUnits.Clear();
+
+        if (BattleData.enemyPrefabs == null)
         {
+            Debug.LogError(
+                "enemyPrefabs NULL");
+
+            return;
+        }
+
+        int amount =
+            Mathf.Min(
+                BattleData.enemyPrefabs.Count,
+                enemySpawns.Count);
+
+        for (int i = 0; i < amount; i++)
+        {
+            if (BattleData.enemyPrefabs[i] == null)
+                continue;
+
             GameObject obj =
                 Instantiate(
-                    BattleData
-                    .enemyPrefabs[i],
-                    enemySpawns[i]
-                    .position,
+                    BattleData.enemyPrefabs[i],
+                    enemySpawns[i].position,
                     Quaternion.identity);
 
             EnemyStats stats =
-                obj.GetComponent
-                <EnemyStats>();
+                obj.GetComponent<EnemyStats>();
 
-            stats.GenerateStats();
+            if (stats != null)
+            {
+                stats.GenerateStats();
+            }
 
             BattleUnit unit =
-                obj.GetComponent
-                <BattleUnit>();
+    obj.GetComponent<BattleUnit>();
 
-            enemyUnits.Add(unit);
+            if (unit != null)
+            {
+                unit.Initialize();
+                enemyUnits.Add(unit);
+            }
         }
+
+        Debug.Log(
+            "Enemies spawnados: "
+            + enemyUnits.Count);
     }
 }

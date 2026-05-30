@@ -1,78 +1,118 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class BattleUIManager :
-    MonoBehaviour
+public class BattleUIManager : MonoBehaviour
 {
-    [Header("Panels")]
-    public Transform playerPanel;
+    [Header("UI")]
+    public TextMeshProUGUI playerInfoText;
 
-    public Transform enemyPanel;
-
-    [Header("Prefabs")]
-    public GameObject textPrefab;
-
-    private Dictionary
-        <BattleUnit, BattleTextUI>
-        texts =
-        new Dictionary
-        <BattleUnit, BattleTextUI>();
+    public TextMeshProUGUI enemyInfoText;
 
     // =========================
-    // CREATE UI
+    // REFRESH GERAL
     // =========================
 
-    public void CreateUI(
+    public void RefreshUI(
         List<BattleUnit> players,
         List<BattleUnit> enemies)
     {
-        // PLAYERS
-        foreach (BattleUnit unit
-            in players)
-        {
-            GameObject obj =
-                Instantiate(
-                    textPrefab,
-                    playerPanel);
+        RefreshPlayers(players);
 
-            BattleTextUI ui =
-                obj.GetComponent
-                <BattleTextUI>();
-
-            ui.Setup(unit);
-
-            texts.Add(unit, ui);
-        }
-
-        // ENEMIES
-        foreach (BattleUnit unit
-            in enemies)
-        {
-            GameObject obj =
-                Instantiate(
-                    textPrefab,
-                    enemyPanel);
-
-            BattleTextUI ui =
-                obj.GetComponent
-                <BattleTextUI>();
-
-            ui.Setup(unit);
-
-            texts.Add(unit, ui);
-        }
+        RefreshEnemies(enemies);
     }
 
     // =========================
-    // REFRESH
+    // PLAYERS
     // =========================
 
-    public void RefreshUnit(
-        BattleUnit unit)
+    void RefreshPlayers(
+        List<BattleUnit> players)
     {
-        if (texts.ContainsKey(unit))
+        if (playerInfoText == null)
         {
-            texts[unit].Refresh();
+            Debug.LogError(
+                "Player Info Text não foi atribuído!");
+
+            return;
         }
+
+        string text = "";
+
+        foreach (BattleUnit unit in players)
+        {
+            if (unit == null)
+                continue;
+
+            text += unit.UnitName;
+
+            if (unit.IsDead())
+            {
+                text +=
+                    "\n<color=red>KO</color>";
+            }
+            else
+            {
+                text +=
+                    "\nHP: "
+                    + unit.currentHP
+                    + "/"
+                    + unit.MaxHP;
+
+                text +=
+                    "\nMP: "
+                    + unit.currentMP
+                    + "/"
+                    + unit.MaxMP;
+            }
+
+            text += "\n\n";
+        }
+
+        playerInfoText.text = text;
+    }
+
+    // =========================
+    // ENEMIES
+    // =========================
+
+    void RefreshEnemies(
+        List<BattleUnit> enemies)
+    {
+        if (enemyInfoText == null)
+        {
+            Debug.LogError(
+                "Enemy Info Text não foi atribuído!");
+
+            return;
+        }
+
+        string text = "";
+
+        foreach (BattleUnit unit in enemies)
+        {
+            if (unit == null)
+                continue;
+
+            text += unit.UnitName;
+
+            if (unit.IsDead())
+            {
+                text +=
+                    "\n<color=red>KO</color>";
+            }
+            else
+            {
+                text +=
+                    "\nHP: "
+                    + unit.currentHP
+                    + "/"
+                    + unit.MaxHP;
+            }
+
+            text += "\n\n";
+        }
+
+        enemyInfoText.text = text;
     }
 }

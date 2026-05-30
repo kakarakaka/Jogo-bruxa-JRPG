@@ -9046,6 +9046,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6517888032144915794, guid: 3597d4afd9df55045a63a33f3b7531a3, type: 3}
+      propertyPath: skills.Array.data[3].skillName
+      value: biscate parafuso 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9102,6 +9106,14 @@ PrefabInstance:
     - target: {fileID: 1742602384689002139, guid: f3b8c847bdef6394989f433f2e10f957, type: 3}
       propertyPath: m_Name
       value: mina ashido
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492112714927623574, guid: f3b8c847bdef6394989f433f2e10f957, type: 3}
+      propertyPath: currentHP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492112714927623574, guid: f3b8c847bdef6394989f433f2e10f957, type: 3}
+      propertyPath: currentMP
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

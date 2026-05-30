@@ -1,33 +1,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnManager :
-    MonoBehaviour
+public class TurnManager : MonoBehaviour
 {
     [Header("Units")]
-    public List<BattleUnit>
-        units =
+    public List<BattleUnit> units =
         new List<BattleUnit>();
 
-    private Queue<BattleUnit>
-        turnQueue =
+    private Queue<BattleUnit> turnQueue =
         new Queue<BattleUnit>();
-
-    // =========================
-    // GERA TURNOS
-    // =========================
 
     public void GenerateTurnOrder()
     {
+        Debug.Log(
+    "Units antes da limpeza: "
+    + units.Count);
+
         turnQueue.Clear();
 
-        if (units.Count <= 0)
-        {
-            Debug.LogError(
-                "Nenhuma unidade!");
+        units.RemoveAll(
+            unit =>
+            unit == null ||
+            unit.IsDead());
 
+        Debug.Log(
+    "Units após limpeza: "
+    + units.Count);
+
+        if (units.Count == 0)
+        {
+            Debug.LogError("Nenhuma unidade viva!");
             return;
         }
+
+        int lowestSpeed =
+            Mathf.Max(1, LowestSpeed());
 
         foreach (BattleUnit unit in units)
         {
@@ -36,57 +43,58 @@ public class TurnManager :
                     1,
                     Mathf.RoundToInt(
                         (float)unit.Speed /
-                        (float)LowestSpeed()
-                    )
-                );
+                        lowestSpeed));
 
-            for (int i = 0;
-                i < turns;
-                i++)
+            for (int i = 0; i < turns; i++)
             {
                 turnQueue.Enqueue(unit);
             }
         }
 
-        Debug.Log(
-            "Turnos: "
-            + turnQueue.Count);
+        Debug.Log("Turnos gerados: " + turnQueue.Count);
     }
 
     int LowestSpeed()
     {
-        int lowest = 999999;
+        int lowest = int.MaxValue;
 
         foreach (BattleUnit unit in units)
         {
-            if (unit.Speed < lowest)
-            {
-                lowest = unit.Speed;
-            }
+            if (unit == null)
+                continue;
+
+            lowest =
+                Mathf.Min(
+                    lowest,
+                    Mathf.Max(1, unit.Speed));
         }
 
         return lowest;
     }
 
-    // =========================
-    // PRÓXIMO TURNO
-    // =========================
-
     public BattleUnit GetNextTurn()
     {
-        if (turnQueue.Count <= 0)
+        while (true)
         {
-            GenerateTurnOrder();
+            if (turnQueue.Count == 0)
+            {
+                GenerateTurnOrder();
+
+
+                if (turnQueue.Count == 0)
+                    return null;
+            }
+
+            BattleUnit unit =
+                turnQueue.Dequeue();
+
+            if (unit == null)
+                continue;
+
+            if (unit.IsDead())
+                continue;
+
+            return unit;
         }
-
-        if (turnQueue.Count <= 0)
-        {
-            Debug.LogError(
-                "Fila vazia!");
-
-            return null;
-        }
-
-        return turnQueue.Dequeue();
     }
 }
