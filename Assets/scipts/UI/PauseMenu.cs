@@ -13,10 +13,15 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject mainButtons;
 
+    public GameObject itemsPanel;
+    
+
     private bool paused = false;
 
     void Start()
     {
+        itemsPanel.SetActive(false);
+
         pauseMenuUI.SetActive(false);
 
         characterPanel.SetActive(false);
@@ -106,4 +111,20 @@ public class PauseMenu : MonoBehaviour
 
         Resume();
     }
+
+    public void OpenItems()
+    {
+        mainButtons.SetActive(false);
+
+        itemsPanel.SetActive(true);
+    }
+
+    public void CloseItems()
+    {
+        itemsPanel.SetActive(false);
+
+        mainButtons.SetActive(true);
+    }
+
+
 }
