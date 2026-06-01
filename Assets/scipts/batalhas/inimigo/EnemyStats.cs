@@ -4,6 +4,14 @@ using UnityEngine;
 public class EnemyStats :
     MonoBehaviour
 {
+    public int XPReward
+    {
+        get
+        {
+            return level * 25;
+        }
+    }
+
     [Header("Info")]
     public string enemyName;
 

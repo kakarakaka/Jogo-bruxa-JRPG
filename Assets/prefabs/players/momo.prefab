@@ -2224,7 +2224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7830686788412034801}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.37364998, y: 0.000000059134635, z: -1.3436846}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2238,7 +2238,7 @@ Transform:
   - {fileID: 5388180553132805537}
   - {fileID: 3150182474124555487}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &5673871413102037452
 Animator:
   serializedVersion: 7
@@ -2291,6 +2291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac93328a4745e0643b75e3c56d4de3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  characterID: 
   characterName: momo yaoyorozu
   level: 1
   maxHP: 100

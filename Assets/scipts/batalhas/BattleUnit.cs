@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleUnit : MonoBehaviour
 {
@@ -25,6 +26,45 @@ public class BattleUnit : MonoBehaviour
     public List<ActiveStatusEffect>
         activeEffects =
         new List<ActiveStatusEffect>();
+
+
+    void Start()
+    {
+        if (SceneManager
+            .GetActiveScene()
+            .name == "BattleScene")
+        {
+            Debug.Log(
+                "Desativando scripts de mundo em: "
+                + gameObject.name);
+
+            DisableWorldScripts();
+        }
+    }
+
+    void DisableWorldScripts()
+    {
+        MonoBehaviour[] scripts =
+            GetComponents<MonoBehaviour>();
+
+        foreach (MonoBehaviour script in scripts)
+        {
+            if (script == null)
+                continue;
+
+            if (script == this)
+                continue;
+
+            if (script is CharacterStats)
+                continue;
+
+            if (script is EnemyStats)
+                continue;
+
+            script.enabled = false;
+        }
+    }
+
 
     // =========================
     // INFO
@@ -129,17 +169,48 @@ public class BattleUnit : MonoBehaviour
 
     public void Initialize()
     {
-        currentHP = MaxHP;
+        if (isEnemy)
+        {
+            currentHP = MaxHP;
 
-        if (!isEnemy)
+            return;
+        }
+
+        string id =
+            characterStats.characterID;
+
+        if (BattleData.savedHP.ContainsKey(id))
+        {
+            currentHP =
+                BattleData.savedHP[id];
+        }
+        else
+        {
+            currentHP = MaxHP;
+
+            BattleData.savedHP[id] =
+                currentHP;
+        }
+
+        if (BattleData.savedMP.ContainsKey(id))
+        {
+            currentMP =
+                BattleData.savedMP[id];
+        }
+        else
         {
             currentMP = MaxMP;
+
+            BattleData.savedMP[id] =
+                currentMP;
         }
 
         Debug.Log(
             UnitName +
-            " iniciado com HP "
-            + currentHP);
+            " carregado com HP "
+            + currentHP +
+            " MP "
+            + currentMP);
     }
 
     // =========================
@@ -152,6 +223,13 @@ public class BattleUnit : MonoBehaviour
 
         currentHP =
             Mathf.Max(currentHP, 0);
+
+        if (!isEnemy)
+        {
+            BattleData.savedHP[
+                characterStats.characterID] =
+                currentHP;
+        }
 
         Debug.Log(
             UnitName +
@@ -173,11 +251,12 @@ public class BattleUnit : MonoBehaviour
                 currentHP,
                 MaxHP);
 
-        Debug.Log(
-            UnitName +
-            " recuperou " +
-            amount +
-            " HP!");
+        if (!isEnemy)
+        {
+            BattleData.savedHP[
+                characterStats.characterID] =
+                currentHP;
+        }
     }
 
     // =========================
@@ -192,9 +271,25 @@ public class BattleUnit : MonoBehaviour
         currentMP -= amount;
 
         currentMP =
-            Mathf.Max(currentMP, 0);
+            Mathf.Max(
+                currentMP,
+                0);
+
+        BattleData.savedMP[
+            characterStats.characterID] =
+            currentMP;
     }
 
+    public void UseItem(
+        ItemData item)
+    {
+        if (item == null)
+            return;
+
+        Heal(item.healHP);
+
+        RecoverMP(item.healMP);
+    }
     public void RecoverMP(int amount)
     {
         if (isEnemy)
@@ -206,6 +301,10 @@ public class BattleUnit : MonoBehaviour
             Mathf.Min(
                 currentMP,
                 MaxMP);
+
+        BattleData.savedMP[
+            characterStats.characterID] =
+            currentMP;
     }
 
     public bool HasEnoughMP(int amount)

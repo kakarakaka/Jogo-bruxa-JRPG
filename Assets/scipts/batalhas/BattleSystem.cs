@@ -1,8 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class BattleSystem : MonoBehaviour
 {
+    [Header("Scenes")]
+    public string worldSceneName = "Mapa";
+    public string gameOverSceneName = "GameOver";
+
     [Header("Units")]
     public List<BattleUnit> players =
         new List<BattleUnit>();
@@ -27,6 +33,33 @@ public class BattleSystem : MonoBehaviour
     private BattleUnit currentUnit;
 
     private Skill selectedSkill;
+
+    IEnumerator EndEnemyTurn()
+    {
+        while (battleLog != null &&
+               battleLog.IsShowingMessage)
+        {
+            yield return null;
+        }
+
+        RemoveDeadUnits();
+
+        if (uiManager != null)
+        {
+            uiManager.RefreshUI(
+                players,
+                enemies);
+        }
+
+        if (CheckBattleEnd())
+        {
+            yield break;
+        }
+
+        NextTurn();
+    }
+
+
 
     // =========================
     // START
@@ -181,6 +214,27 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerTurn()
     {
+        if (currentUnit == null)
+        {
+            NextTurn();
+            return;
+        }
+
+        if (currentUnit.IsDead())
+        {
+            Debug.Log(
+                currentUnit.UnitName +
+                " está morto.");
+
+            NextTurn();
+            return;
+        }
+
+        if (CheckBattleEnd())
+        {
+            return;
+        }
+
         Debug.Log(
             "PLAYER TURN");
 
@@ -212,6 +266,16 @@ public class BattleSystem : MonoBehaviour
     public void SelectSkill(
         Skill skill)
     {
+
+        if (currentUnit == null)
+            return;
+
+        if (currentUnit.IsDead())
+            return;
+
+        if (CheckBattleEnd())
+            return;
+
         if (skill == null)
         {
             Debug.LogError(
@@ -312,6 +376,8 @@ public class BattleSystem : MonoBehaviour
             targetMenu.Hide();
         }
 
+        RemoveDeadUnits();
+
         if (CheckBattleEnd())
         {
             return;
@@ -329,19 +395,31 @@ public class BattleSystem : MonoBehaviour
         Debug.Log(
             "ENEMY TURN");
 
-        if (players.Count <= 0)
+        List<BattleUnit> alivePlayers =
+            new List<BattleUnit>();
+
+        foreach (BattleUnit player in players)
+        {
+            if (player != null &&
+                !player.IsDead())
+            {
+                alivePlayers.Add(player);
+            }
+        }
+
+        if (alivePlayers.Count <= 0)
         {
             Debug.LogError(
-                "Não existem jogadores!");
+                "Não existem jogadores vivos!");
 
             return;
         }
 
         BattleUnit target =
-            players[
+            alivePlayers[
                 Random.Range(
                     0,
-                    players.Count)];
+                    alivePlayers.Count)];
 
         Skill skill =
             enemyAI.ChooseSkill(
@@ -387,26 +465,17 @@ public class BattleSystem : MonoBehaviour
                 + skill.effectType;
         }
 
+        Debug.Log(
+            "LOG INIMIGO:\n" +
+            log);
+
         if (battleLog != null)
         {
             battleLog.Write(log);
         }
 
-        RemoveDeadUnits();
-
-        if (uiManager != null)
-        {
-            uiManager.RefreshUI(
-                players,
-                enemies);
-        }
-
-        if (CheckBattleEnd())
-        {
-            return;
-        }
-
-        NextTurn();
+        StartCoroutine(
+    EndEnemyTurn());
     }
 
     // =========================
@@ -415,16 +484,18 @@ public class BattleSystem : MonoBehaviour
 
     void RemoveDeadUnits()
     {
+        // Mantém jogadores mortos para exibir KO na UI
         players.RemoveAll(
             unit =>
-            unit == null ||
-            unit.IsDead());
+            unit == null);
 
+        // Remove inimigos derrotados
         enemies.RemoveAll(
             unit =>
             unit == null ||
             unit.IsDead());
 
+        // Remove mortos da fila de turnos
         if (turnManager != null)
         {
             turnManager.units.RemoveAll(
@@ -440,18 +511,32 @@ public class BattleSystem : MonoBehaviour
 
     bool CheckBattleEnd()
     {
+        bool allPlayersDead = true;
+
+        foreach (BattleUnit player in players)
+        {
+            if (player != null &&
+                !player.IsDead())
+            {
+                allPlayersDead = false;
+                break;
+            }
+        }
+
         if (enemies.Count <= 0)
         {
-            Debug.Log(
-                "Vitória!");
+            Debug.Log("Vitória!");
+
+            WinBattle();
 
             return true;
         }
 
-        if (players.Count <= 0)
+        if (allPlayersDead)
         {
-            Debug.Log(
-                "Derrota!");
+            Debug.Log("Derrota!");
+
+            LoseBattle();
 
             return true;
         }
@@ -459,6 +544,36 @@ public class BattleSystem : MonoBehaviour
         return false;
     }
 
+    void WinBattle()
+    {
+        Debug.Log("Vitória!");
+
+        if (!string.IsNullOrEmpty(
+            BattleData.currentEnemyID))
+        {
+            BattleData.defeatedEnemies.Add(
+                BattleData.currentEnemyID);
+
+            Debug.Log(
+                "Inimigo derrotado: "
+                + BattleData.currentEnemyID);
+        }
+        GiveBattleXP();
+
+        SceneManager.LoadScene(
+            worldSceneName);
+
+        SceneManager.LoadScene(
+            worldSceneName);
+    }
+
+    void LoseBattle()
+    {
+        Debug.Log("Game Over");
+
+        SceneManager.LoadScene(
+            gameOverSceneName);
+    }
     // =========================
     // REFRESH UI
     // =========================
@@ -472,4 +587,33 @@ public class BattleSystem : MonoBehaviour
                 enemies);
         }
     }
+
+    void GiveBattleXP()
+    {
+        int totalXP = 0;
+
+        foreach (BattleUnit enemy in enemies)
+        {
+            if (enemy == null)
+                continue;
+
+            totalXP +=
+                enemy.enemyStats.XPReward;
+        }
+
+        foreach (GameObject member
+                 in PartyManager.Instance.currentParty)
+        {
+            CharacterStats stats =
+                member.GetComponent<CharacterStats>();
+
+            if (stats == null)
+                continue;
+
+            stats.storedXP += totalXP;
+        }
+    }
+
+
+
 }

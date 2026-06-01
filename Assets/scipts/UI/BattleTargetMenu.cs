@@ -26,7 +26,7 @@ public class BattleTargetMenu : MonoBehaviour
 
         foreach (Transform child in content)
         {
-            Destroy(child.gameObject);
+            child.gameObject.SetActive(false);
         }
 
         foreach (BattleUnit unit in targets)

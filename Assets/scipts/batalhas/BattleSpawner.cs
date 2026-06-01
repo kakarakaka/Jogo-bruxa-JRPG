@@ -48,10 +48,10 @@ public class BattleSpawner : MonoBehaviour
                 continue;
 
             GameObject obj =
-                Instantiate(
-                    BattleData.playerParty[i],
-                    playerSpawns[i].position,
-                    Quaternion.identity);
+    Instantiate(
+        BattleData.playerParty[i],
+        playerSpawns[i].position,
+        playerSpawns[i].rotation);
 
             BattleUnit unit =
      obj.GetComponent<BattleUnit>();

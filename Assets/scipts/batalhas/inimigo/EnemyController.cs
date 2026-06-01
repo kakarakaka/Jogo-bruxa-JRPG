@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 public class EnemyController :
     MonoBehaviour
 {
+    [Header("Save")]
+    public string enemyID;
+
     [Header("Vision")]
     public float viewDistance = 10f;
 
@@ -246,6 +249,15 @@ public class EnemyController :
             BattleData.enemyAmbush =
                 true;
         }
+
+        BattleData.currentEnemyID =
+    enemyID;
+
+        BattleData.playerPosition =
+    player.position;
+
+        BattleData.playerRotation =
+            player.rotation;
 
         SceneManager.LoadScene(
             "BattleScene");

@@ -29,7 +29,7 @@ public class BattleSkillMenu : MonoBehaviour
 
         foreach (Transform child in content)
         {
-            Destroy(child.gameObject);
+            child.gameObject.SetActive(false);
         }
 
         if (unit == null)

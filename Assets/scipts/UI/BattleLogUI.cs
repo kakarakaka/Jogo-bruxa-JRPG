@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -5,45 +7,58 @@ public class BattleLogUI : MonoBehaviour
 {
     public TextMeshProUGUI logText;
 
-    [Header("Config")]
-    public int maxLines = 15;
+    public float autoAdvanceTime = 2f;
 
-    public void Write(string message)
+    Queue<string> messages =
+        new Queue<string>();
+
+    bool showingMessage;
+
+    public bool IsShowingMessage
     {
-        if (logText == null)
-            return;
-
-        if (string.IsNullOrEmpty(logText.text))
+        get
         {
-            logText.text = message;
-        }
-        else
-        {
-            logText.text += "\n\n" + message;
-        }
-
-        string[] lines =
-            logText.text.Split('\n');
-
-        if (lines.Length > maxLines)
-        {
-            int start =
-                lines.Length - maxLines;
-
-            logText.text =
-                string.Join(
-                    "\n",
-                    lines,
-                    start,
-                    maxLines);
+            return showingMessage;
         }
     }
 
-    public void ClearLog()
+    public void Write(string message)
     {
-        if (logText != null)
+        messages.Enqueue(message);
+
+        if (!showingMessage)
         {
-            logText.text = "";
+            StartCoroutine(
+                ShowMessages());
         }
+    }
+
+    IEnumerator ShowMessages()
+    {
+        showingMessage = true;
+
+        while (messages.Count > 0)
+        {
+            logText.text =
+                messages.Dequeue();
+
+            float timer = 0f;
+
+            while (timer <
+                   autoAdvanceTime)
+            {
+                timer +=
+                    Time.deltaTime;
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    break;
+                }
+
+                yield return null;
+            }
+        }
+
+        showingMessage = false;
     }
 }
