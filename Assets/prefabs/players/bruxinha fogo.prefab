@@ -152,6 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e7275d414254944aaad0b02d1c1e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  moveForwardKey: 37
+  moveBackwardKey: 33
+  moveLeftKey: 15
+  moveRightKey: 18
+  jumpKey: 1
+  runKey: 51
   walkSpeed: 4
   runSpeed: 7
   rotationSpeed: 10
@@ -182,9 +188,8 @@ MonoBehaviour:
   defense: 0
   speed: 8
   skills:
-  - skillName: a lendaria jarrada fatal 3
-    description: "bate no inimigo com um jarro imagin\xE1rio, causando dano psicol\xF3gico
-      nos oponentes (n\xE3o confunda este golpe com \"a lendaria jorrada fatal\")"
+  - skillName: golpe 1
+    description: "descri\xE7\xE3o"
     skillType: 0
     damage: 5
     mpCost: 0
@@ -192,9 +197,8 @@ MonoBehaviour:
     effectPower: 0
     effectDuration: 0
     equipped: 0
-  - skillName: a lendaria manada fatal 3
-    description: "invoca uma manada de buffalus para atropelar o oponente (n\xE3o
-      confunda este golpe com \"a lendaria mamada fatal\")"
+  - skillName: golpe 2
+    description: "descri\xE7\xE3o"
     skillType: 1
     damage: 10
     mpCost: 0
@@ -202,9 +206,8 @@ MonoBehaviour:
     effectPower: 0
     effectDuration: 0
     equipped: 0
-  - skillName: "bastquet\xE3o 3"
-    description: "faz uma enterrada usando um peso de 50Kg na cabe\xE7a do oponente
-      (n\xE3o confunda este golpe com \"boquet\xE3o\")"
+  - skillName: golpe 3
+    description: "descri\xE7\xE3o"
     skillType: 0
     damage: 20
     mpCost: 0
@@ -212,9 +215,8 @@ MonoBehaviour:
     effectPower: 0
     effectDuration: 0
     equipped: 0
-  - skillName: biscate parafuso 3
-    description: "sedu o oponente para distrailo, logo ap\xF3s isso, martela um prego
-      no cr\xE3nio do oponente (n\xE3o confunda este golpe com \"boquete parafuso\")"
+  - skillName: golpe 4
+    description: "descri\xE7\xE3o"
     skillType: 0
     damage: 15
     mpCost: 0
