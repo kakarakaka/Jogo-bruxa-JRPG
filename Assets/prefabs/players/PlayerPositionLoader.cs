@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class PlayerPositionLoader :
-    MonoBehaviour
+public class PlayerPositionLoader : MonoBehaviour
 {
     void Start()
     {

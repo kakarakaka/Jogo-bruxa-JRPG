@@ -1,9 +1,22 @@
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+
+    private Animator animator;
+
+    [Header("Keybinds")]
+    public Key moveForwardKey = Key.W;
+    public Key moveBackwardKey = Key.S;
+    public Key moveLeftKey = Key.A;
+    public Key moveRightKey = Key.D;
+
+    public Key jumpKey = Key.Space;
+    public Key runKey = Key.LeftShift;
+
     [Header("Movimento")]
     public float walkSpeed = 4f;
     public float runSpeed = 7f;
@@ -28,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        controller = GetComponent<CharacterController>();
+
+        animator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -37,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         GetInput();
         Move();
+        UpdateAnimations();
     }
 
     void GetInput()
@@ -45,21 +64,22 @@ public class PlayerMovement : MonoBehaviour
 
         moveInput = Vector2.zero;
 
-        if (keyboard.wKey.isPressed)
+        if (keyboard[moveForwardKey].isPressed)
             moveInput.y += 1;
 
-        if (keyboard.sKey.isPressed)
+        if (keyboard[moveBackwardKey].isPressed)
             moveInput.y -= 1;
 
-        if (keyboard.aKey.isPressed)
+        if (keyboard[moveLeftKey].isPressed)
             moveInput.x -= 1;
 
-        if (keyboard.dKey.isPressed)
+        if (keyboard[moveRightKey].isPressed)
             moveInput.x += 1;
 
-        jumpPressed = keyboard.spaceKey.wasPressedThisFrame;
+        jumpPressed = keyboard[jumpKey].wasPressedThisFrame;
 
-        runPressed = keyboard.leftShiftKey.isPressed;
+        runPressed =
+        keyboard[runKey].isPressed;
     }
 
     void Move()
@@ -113,5 +133,20 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void UpdateAnimations()
+    {
+        float speed = moveInput.magnitude;
+
+        if (runPressed && speed > 0.1f)
+            speed = 2f;
+        else if (speed > 0.1f)
+            speed = 1f;
+        else
+            speed = 0f;
+
+        animator.SetFloat("Speed", speed);
+        animator.SetBool("IsGrounded", isGrounded);
     }
 }

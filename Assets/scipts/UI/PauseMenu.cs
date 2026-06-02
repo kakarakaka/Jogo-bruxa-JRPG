@@ -1,8 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
+    public TextMeshProUGUI partyStatusText;
+
+    public BattleUnit[] partyMembers;
+
     public GameObject pauseMenuUI;
 
     public GameObject characterPanel;
@@ -14,7 +19,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject mainButtons;
 
     public GameObject itemsPanel;
-    
+
+    public GameObject settingsPanel;
+
 
     private bool paused = false;
 
@@ -29,6 +36,8 @@ public class PauseMenu : MonoBehaviour
         statusPanel.SetActive(false);
 
         skillsPanel.SetActive(false);
+
+        settingsPanel.SetActive(false);
     }
 
     void Update()
@@ -53,6 +62,8 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
+        UpdatePartyStatus();
+
         pauseMenuUI.SetActive(true);
 
         Time.timeScale = 0f;
@@ -126,5 +137,47 @@ public class PauseMenu : MonoBehaviour
         mainButtons.SetActive(true);
     }
 
+    void UpdatePartyStatus()
+    {
+        if (partyStatusText == null)
+            return;
+
+        string info = "";
+
+        foreach (BattleUnit unit
+                 in partyMembers)
+        {
+            if (unit == null)
+                continue;
+
+            info +=
+                unit.UnitName +
+                "   HP " +
+                unit.currentHP +
+                "/" +
+                unit.MaxHP +
+                "   MP " +
+                unit.currentMP +
+                "/" +
+                unit.MaxMP +
+                "\n";
+        }
+
+        partyStatusText.text = info;
+    }
+
+    public void OpenSettings()
+    {
+        mainButtons.SetActive(false);
+
+        settingsPanel.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
+
+        mainButtons.SetActive(true);
+    }
 
 }

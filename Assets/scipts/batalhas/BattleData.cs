@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public static class BattleData
 {
+    public static bool firstGameStart = true;
 
     public static Vector3 playerPosition;
 
@@ -57,4 +59,6 @@ public static class BattleData
     public static HashSet<string>
         defeatedEnemies =
         new HashSet<string>();
+
+
 }

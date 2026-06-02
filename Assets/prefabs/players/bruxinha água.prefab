@@ -1,0 +1,326 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5992843786190963469
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.897
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06039688
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.126
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2519436022900607863, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 331cee43ed9eaeb449a6b8f0712d2804, type: 2}
+    - target: {fileID: 188058655708357034, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b64c80590c5417941ae8263b776418e5, type: 2}
+    - target: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_Name
+      value: "bruxinha \xE1gua"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069451742801640545, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b64c80590c5417941ae8263b776418e5, type: 2}
+    - target: {fileID: 4074954274623497910, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b64c80590c5417941ae8263b776418e5, type: 2}
+    - target: {fileID: 5074512353664290214, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b64c80590c5417941ae8263b776418e5, type: 2}
+    - target: {fileID: 7205140776170859923, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b64c80590c5417941ae8263b776418e5, type: 2}
+    - target: {fileID: 8316082247650676095, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b64c80590c5417941ae8263b776418e5, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8383454983516365279}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7066014673221624196}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3250715313097652286}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3548084385852545745}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 30436665625719687}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2971765420634639427}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5599447581919474002}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6766539754292043365}
+  m_SourcePrefab: {fileID: 100100000, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+--- !u!1 &6911814307002777180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c4ee27a8b80ca264bbffb1578485b4d7, type: 3}
+  m_PrefabInstance: {fileID: 5992843786190963469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8383454983516365279
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911814307002777180}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0dc00c0cc13a11448b597202dbacf759, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7066014673221624196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911814307002777180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e7275d414254944aaad0b02d1c1e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  walkSpeed: 4
+  runSpeed: 7
+  rotationSpeed: 10
+  jumpHeight: 2
+  gravity: -20
+  canMove: 1
+--- !u!114 &3250715313097652286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911814307002777180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac93328a4745e0643b75e3c56d4de3ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  level: 1
+  storedXP: 0
+  xpSpent: 0
+  characterID: 
+  characterName: "\xC1gua"
+  maxHP: 100
+  maxMP: 50
+  attack: 10
+  specialAttack: 15
+  defense: 0
+  speed: 8
+  skills:
+  - skillName: a lendaria jarrada fatal
+    description: "bate no inimigo com um jarro imagin\xE1rio, causando dano psicol\xF3gico
+      nos oponentes (n\xE3o confunda este golpe com \"a lendaria jorrada fatal\")"
+    skillType: 0
+    damage: 5
+    mpCost: 0
+    effectType: 0
+    effectPower: 0
+    effectDuration: 0
+    equipped: 0
+  - skillName: a lendaria manada fatal
+    description: "invoca uma manada de buffalus para atropelar o oponente (n\xE3o
+      confunda este golpe com \"a lendaria mamada fatal\")"
+    skillType: 1
+    damage: 10
+    mpCost: 0
+    effectType: 0
+    effectPower: 0
+    effectDuration: 0
+    equipped: 0
+  - skillName: "bastquet\xE3o"
+    description: "faz uma enterrada usando um peso de 50Kg na cabe\xE7a do oponente
+      (n\xE3o confunda este golpe com \"boquet\xE3o\")"
+    skillType: 0
+    damage: 20
+    mpCost: 0
+    effectType: 0
+    effectPower: 0
+    effectDuration: 0
+    equipped: 0
+  - skillName: biscate parafuso
+    description: "sedu o oponente para distrailo, logo ap\xF3s isso, martela um prego
+      no cr\xE3nio do oponente (n\xE3o confunda este golpe com \"boquete parafuso\")"
+    skillType: 0
+    damage: 15
+    mpCost: 0
+    effectType: 0
+    effectPower: 0
+    effectDuration: 0
+    equipped: 0
+  - skillName: discarga mortal
+    description: "solta uma discarga el\xE9trica capaz de paralizar o inimigo (n\xE3o
+      confunda este golpe com \"dedada mortal\")"
+    skillType: 2
+    damage: 0
+    mpCost: 0
+    effectType: 9
+    effectPower: 0
+    effectDuration: 3
+    equipped: 0
+--- !u!114 &3548084385852545745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911814307002777180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d34247b1106e8245a00eb16f6933751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUnit
+  isEnemy: 0
+  characterStats: {fileID: 3250715313097652286}
+  enemyStats: {fileID: 0}
+  currentHP: 100
+  currentMP: 50
+  bonusAttack: 0
+  bonusDefense: 0
+  bonusSpeed: 0
+  activeEffects: []
+--- !u!114 &30436665625719687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911814307002777180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759d5946aaea11d459e48700b2cf8bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  interactDistance: 3
+--- !u!114 &2971765420634639427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911814307002777180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcfe88a0d7d263458741d27d5cbc62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPositionLoader
+--- !u!65 &5599447581919474002
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911814307002777180}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.88, z: 0.66}
+  m_Center: {x: 0, y: 0.88, z: 0}
+--- !u!143 &6766539754292043365
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911814307002777180}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.88, z: 0}

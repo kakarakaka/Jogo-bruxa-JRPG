@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class ItemMenu : MonoBehaviour
 {
+    public TextMeshProUGUI characterInfoText;
+
     [Header("Lista")]
     public Transform itemListParent;
 
@@ -40,6 +42,8 @@ public class ItemMenu : MonoBehaviour
 
     public void UpdateItemList()
     {
+        Debug.Log("Inventory.Instance = " + Inventory.Instance);
+
         foreach (Transform child in itemListParent)
         {
             Destroy(child.gameObject);
@@ -122,5 +126,26 @@ public class ItemMenu : MonoBehaviour
             selectedUnit.UnitName +
             " usou " +
             selectedItem.itemName);
+    }
+
+    public void ShowCharacterInfo(
+    GameObject character)
+    {
+        BattleUnit unit =
+            character.GetComponent<BattleUnit>();
+
+        if (unit == null)
+            return;
+
+        characterInfoText.text =
+            unit.UnitName +
+            "\nHP: " +
+            unit.currentHP +
+            "/" +
+            unit.MaxHP +
+            "\nMP: " +
+            unit.currentMP +
+            "/" +
+            unit.MaxMP;
     }
 }
