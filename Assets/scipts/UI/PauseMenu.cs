@@ -6,6 +6,8 @@ public class PauseMenu : MonoBehaviour
 {
     public TextMeshProUGUI partyStatusText;
 
+    public TextMeshProUGUI goldText;
+
     public BattleUnit[] partyMembers;
 
     public GameObject pauseMenuUI;
@@ -63,6 +65,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         UpdatePartyStatus();
+        UpdateGoldDisplay();
 
         pauseMenuUI.SetActive(true);
 
@@ -178,6 +181,16 @@ public class PauseMenu : MonoBehaviour
         settingsPanel.SetActive(false);
 
         mainButtons.SetActive(true);
+    }
+
+    void UpdateGoldDisplay()
+    {
+        if (goldText == null)
+            return;
+
+        goldText.text =
+            "Gold: " +
+            BattleData.gold;
     }
 
 }

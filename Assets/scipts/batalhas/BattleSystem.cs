@@ -34,6 +34,9 @@ public class BattleSystem : MonoBehaviour
 
     private Skill selectedSkill;
 
+    private List<BattleUnit> battleEnemies =
+    new List<BattleUnit>();
+
     IEnumerator EndEnemyTurn()
     {
         while (battleLog != null &&
@@ -67,6 +70,10 @@ public class BattleSystem : MonoBehaviour
 
     void Start()
     {
+    
+
+        battleEnemies = new List<BattleUnit>(enemies);
+
         BattleSpawner spawner =
             FindFirstObjectByType<BattleSpawner>();
 
@@ -80,6 +87,7 @@ public class BattleSystem : MonoBehaviour
 
         players = spawner.playerUnits;
         enemies = spawner.enemyUnits;
+        battleEnemies = new List<BattleUnit>(enemies);
 
         Debug.Log(
             "Players encontrados: "
@@ -558,7 +566,8 @@ public class BattleSystem : MonoBehaviour
                 "Inimigo derrotado: "
                 + BattleData.currentEnemyID);
         }
-        GiveBattleXP();
+
+        GiveBattleGold();
 
         SceneManager.LoadScene(
             worldSceneName);
@@ -588,32 +597,20 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    void GiveBattleXP()
+    void GiveBattleGold()
     {
-        int totalXP = 0;
+        int totalGold = 0;
 
-        foreach (BattleUnit enemy in enemies)
+        foreach (BattleUnit enemy in battleEnemies)
         {
             if (enemy == null)
                 continue;
 
-            totalXP +=
-                enemy.enemyStats.XPReward;
+            totalGold +=
+                enemy.enemyStats.level * 150;
         }
 
-        foreach (GameObject member
-                 in PartyManager.Instance.currentParty)
-        {
-            CharacterStats stats =
-                member.GetComponent<CharacterStats>();
-
-            if (stats == null)
-                continue;
-
-            stats.storedXP += totalXP;
-        }
+        BattleData.gold += totalGold;
     }
-
-
 
 }

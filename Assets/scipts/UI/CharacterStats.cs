@@ -6,9 +6,6 @@ public class CharacterStats : MonoBehaviour
     [Header("Progressão")]
     public int level = 1;
 
-    public int storedXP = 0;
-
-    public int xpSpent = 0;
 
     [Header("ID")]
     public string characterID;
@@ -82,39 +79,5 @@ public class CharacterStats : MonoBehaviour
         SpecialAttack
     }
 
-    public bool UpgradeStat(
-    UpgradeType type)
-    {
-        int cost =
-            GetUpgradeCost();
-
-        if (storedXP < cost)
-            return false;
-
-        storedXP -= cost;
-        xpSpent += cost;
-
-        switch (type)
-        {
-            case UpgradeType.HP:
-                maxHP += 10;
-                break;
-
-            case UpgradeType.MP:
-                maxMP += 5;
-                break;
-
-            case UpgradeType.Attack:
-                attack += 2;
-                break;
-
-            case UpgradeType.SpecialAttack:
-                specialAttack += 2;
-                break;
-        }
-
-        level++;
-
-        return true;
-    }
+   
 }

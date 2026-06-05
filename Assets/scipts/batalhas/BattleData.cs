@@ -60,5 +60,10 @@ public static class BattleData
         defeatedEnemies =
         new HashSet<string>();
 
+    // =========================
+    // DINHEIRO
+    // =========================
+
+    public static int gold = 0;
 
 }

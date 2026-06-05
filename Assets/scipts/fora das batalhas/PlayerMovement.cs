@@ -41,21 +41,20 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-
-        controller = GetComponent<CharacterController>();
-
         animator = GetComponent<Animator>();
 
     }
 
     void Update()
     {
-        if (!canMove)
-            return;
+    
+            if (!canMove)
+                return;
 
-        GetInput();
-        Move();
-        UpdateAnimations();
+            GetInput();
+            Move();
+            UpdateAnimations();
+ 
     }
 
     void GetInput()
@@ -137,16 +136,18 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateAnimations()
     {
-        float speed = moveInput.magnitude;
+        if (animator == null)
+            return;
 
-        if (runPressed && speed > 0.1f)
-            speed = 2f;
-        else if (speed > 0.1f)
-            speed = 1f;
-        else
-            speed = 0f;
+        bool moving = moveInput.magnitude > 0.1f;
 
-        animator.SetFloat("Speed", speed);
-        animator.SetBool("IsGrounded", isGrounded);
+        animator.SetBool("IsWalking",
+            moving && !runPressed && isGrounded);
+
+        animator.SetBool("IsRunning",
+            moving && runPressed && isGrounded);
+
+        animator.SetBool("IsJumping",
+            !isGrounded && velocity.y > 0.1f);
     }
 }

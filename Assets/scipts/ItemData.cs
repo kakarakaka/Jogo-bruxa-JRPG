@@ -5,6 +5,10 @@ using UnityEngine;
     menuName = "JRPG/Item")]
 public class ItemData : ScriptableObject
 {
+    [Header("Economia")]
+    public int buyPrice = 100;
+    public int sellPrice = 50;
+
     [Header("Informações")]
     public string itemName;
 
