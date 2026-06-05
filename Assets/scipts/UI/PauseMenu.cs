@@ -189,7 +189,7 @@ public class PauseMenu : MonoBehaviour
             return;
 
         goldText.text =
-            "Gold: " +
+            "cristais de mana: " +
             BattleData.gold;
     }
 

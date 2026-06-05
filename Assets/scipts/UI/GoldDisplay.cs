@@ -8,7 +8,7 @@ public class GoldDisplay : MonoBehaviour
     void Update()
     {
         goldText.text =
-            "Gold: " +
+            "cristais de mana: " +
             BattleData.gold;
     }
 }

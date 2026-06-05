@@ -11,11 +11,11 @@ public class PlayerInteraction :
         if (Input.GetKeyDown(
             KeyCode.E))
         {
-            TryStartBattle();
+            TryInteraction();
         }
     }
 
-    void TryStartBattle()
+    void TryInteraction()
     {
         Collider[] hits =
             Physics.OverlapSphere(
@@ -24,9 +24,18 @@ public class PlayerInteraction :
 
         foreach (Collider hit in hits)
         {
+            ShopTrigger shop =
+                hit.GetComponent<ShopTrigger>();
+
+            if (shop != null)
+            {
+                shop.OpenShop();
+
+                return;
+            }
+
             EnemyController enemy =
-                hit.GetComponent
-                <EnemyController>();
+                hit.GetComponent<EnemyController>();
 
             if (enemy != null)
             {
