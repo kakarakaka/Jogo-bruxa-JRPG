@@ -7,7 +7,11 @@ public class ShopUI :
     public static ShopUI Instance;
 
     [Header("UI")]
-    public GameObject shopPanel;
+    public GameObject mainMenuPanel;
+
+public GameObject shopPanel;
+
+    public GameObject levelUpPanel;
 
     public TextMeshProUGUI goldText;
 
@@ -33,26 +37,23 @@ public class ShopUI :
     }
 
     public void OpenShop(
-        ShopData shop)
+     ShopData shop)
     {
         currentShop = shop;
 
-        RefreshGold();
+        mainMenuPanel.SetActive(true);
 
-        GenerateButtons();
+        shopPanel.SetActive(false);
 
-        descriptionText.text = "";
-
-        priceText.text = "";
-
-        shopPanel.SetActive(true);
+        levelUpPanel.SetActive(false);
 
         Time.timeScale = 0f;
     }
 
     public void CloseShop()
     {
-        shopPanel.SetActive(false);
+        mainMenuPanel.SetActive(false);
+
 
         Time.timeScale = 1f;
     }
@@ -119,4 +120,38 @@ public class ShopUI :
             item.buyPrice +
             " cristal de mana";
     }
+
+    public void OpenStorePanel()
+    {
+        mainMenuPanel.SetActive(false);
+
+        shopPanel.SetActive(true);
+
+        levelUpPanel.SetActive(false);
+
+        RefreshGold();
+
+        GenerateButtons();
+    }
+
+    public void OpenLevelUpPanel()
+    {
+        mainMenuPanel.SetActive(false);
+
+        shopPanel.SetActive(false);
+
+        levelUpPanel.SetActive(true);
+
+        RefreshGold();
+    }
+
+    public void ReturnToMainMenu()
+    {
+        mainMenuPanel.SetActive(true);
+
+        shopPanel.SetActive(false);
+
+        levelUpPanel.SetActive(false);
+    }
+
 }

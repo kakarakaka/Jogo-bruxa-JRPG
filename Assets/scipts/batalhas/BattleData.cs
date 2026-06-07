@@ -64,6 +64,6 @@ public static class BattleData
     // DINHEIRO
     // =========================
 
-    public static int gold = 0;
+    public static int gold = 999999999;
 
 }

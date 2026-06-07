@@ -169,8 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   level: 1
-  storedXP: 0
-  xpSpent: 0
+  spentLevels: 0
   characterID: 
   characterName: Terra
   maxHP: 100
@@ -178,7 +177,7 @@ MonoBehaviour:
   attack: 10
   specialAttack: 15
   defense: 0
-  speed: 8
+  speed: 32
   skills:
   - skillName: golpe 1
     description: "descri\xE7\xE3o"

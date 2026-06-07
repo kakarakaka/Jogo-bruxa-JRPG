@@ -5,7 +5,7 @@ public class CharacterStats : MonoBehaviour
 {
     [Header("Progressão")]
     public int level = 1;
-
+    public int spentLevels;
 
     [Header("ID")]
     public string characterID;
@@ -31,10 +31,35 @@ public class CharacterStats : MonoBehaviour
     public List<Skill> skills =
         new List<Skill>();
 
+    [System.Serializable]
+    public class CharacterSaveData
+    {
+        public string id;
+
+        public int level;
+
+        public int maxHP;
+
+        public int maxMP;
+
+        public int attack;
+
+        public int specialAttack;
+
+        public int speed;
+    }
+
+    [System.Serializable]
+    public class SaveData
+    {
+        public int gold;
+
+        public List<CharacterSaveData> characters;
+    }
 
     public int GetUpgradeCost()
     {
-        return 100 + (level * 50);
+        return 100 + (level * 25);
     }
 
     void Awake()
@@ -79,5 +104,28 @@ public class CharacterStats : MonoBehaviour
         SpecialAttack
     }
 
-   
+    public void ApplyHPUpgrade()
+    {
+        maxHP += 10;
+        level++;
+    }
+
+    public void ApplyMPUpgrade()
+    {
+        maxMP += 5;
+        level++;
+    }
+
+    public void ApplyAttackUpgrade()
+    {
+        attack += 2;
+        level++;
+    }
+
+    public void ApplySpecialAttackUpgrade()
+    {
+        specialAttack += 2;
+        level++;
+    }
+
 }
