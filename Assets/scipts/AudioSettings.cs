@@ -1,25 +1,45 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class AudioSettings : MonoBehaviour
 {
-    public Slider volumeSlider;
 
-    void Start()
+    [SerializeField] private AudioMixer myMixer;
+    [SerializeField] private Slider musicSlider;
+
+    private void Start()
     {
-        float volume = 1f;
+        if (PlayerPrefs.HasKey("musicVolume"))
+        {
+LoadVolume();
 
-        volumeSlider.value = volume;
+        }
+        else
+        {
 
-        AudioListener.volume = volume;
+            SetMusicVolume();
+
+        }
+
+
+            
     }
 
-    public void SetVolume(float volume)
+    public void SetMusicVolume()
     {
-        AudioListener.volume = volume;
+        float volume = musicSlider.value;
+        myMixer.SetFloat("musica",Mathf.Log10(volume)*20);
+        PlayerPrefs.SetFloat("musicVolume",volume);
 
-        PlayerPrefs.SetFloat(
-            "MasterVolume",
-            volume);
     }
+    private void LoadVolume()
+    {
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+
+        SetMusicVolume();
+
+
+    }
+
 }
