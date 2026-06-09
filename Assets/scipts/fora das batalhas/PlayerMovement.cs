@@ -47,14 +47,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-    
-            if (!canMove)
-                return;
 
-            GetInput();
-            Move();
-            UpdateAnimations();
- 
+        if (!canMove)
+            return;
+
+        GetInput();
+        Move();
+        UpdateAnimations();
+
     }
 
     void GetInput()
