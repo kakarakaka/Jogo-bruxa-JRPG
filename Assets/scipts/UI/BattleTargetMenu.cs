@@ -12,11 +12,13 @@ public class BattleTargetMenu : MonoBehaviour
 
     private BattleSystem battleSystem;
 
+    private List<GameObject> buttons =
+        new List<GameObject>();
+
     void Start()
     {
         battleSystem =
-            FindFirstObjectByType
-            <BattleSystem>();
+            FindFirstObjectByType<BattleSystem>();
     }
 
     public void ShowTargets(
@@ -24,10 +26,16 @@ public class BattleTargetMenu : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        foreach (Transform child in content)
+        // Esconde todos os botões existentes
+        foreach (GameObject btn in buttons)
         {
-            child.gameObject.SetActive(false);
+            if (btn != null)
+            {
+                btn.SetActive(false);
+            }
         }
+
+        int index = 0;
 
         foreach (BattleUnit unit in targets)
         {
@@ -37,12 +45,22 @@ public class BattleTargetMenu : MonoBehaviour
             if (unit.IsDead())
                 continue;
 
-            Debug.Log(
-    "Criando botão de alvo");
-            GameObject obj =
-                Instantiate(
+            GameObject obj;
+
+            // Reutiliza botão existente
+            if (index < buttons.Count)
+            {
+                obj = buttons[index];
+                obj.SetActive(true);
+            }
+            else
+            {
+                obj = Instantiate(
                     targetButtonPrefab,
                     content);
+
+                buttons.Add(obj);
+            }
 
             TargetButton button =
                 obj.GetComponent<TargetButton>();
@@ -50,16 +68,26 @@ public class BattleTargetMenu : MonoBehaviour
             button.target = unit;
 
             TextMeshProUGUI txt =
-                obj.GetComponentInChildren
-                <TextMeshProUGUI>();
+                obj.GetComponentInChildren<TextMeshProUGUI>();
 
-            txt.text =
-                unit.UnitName +
-                " HP: " +
-                unit.currentHP +
-                "/" +
-                unit.MaxHP;
+            if (txt != null)
+            {
+                txt.text =
+                    unit.UnitName +
+                    " HP: " +
+                    unit.currentHP +
+                    "/" +
+                    unit.MaxHP;
+            }
+
+            index++;
         }
+
+        // Atualiza o layout imediatamente
+        LayoutRebuilder.ForceRebuildLayoutImmediate(
+            content.GetComponent<RectTransform>());
+
+        Canvas.ForceUpdateCanvases();
     }
 
     public void Hide()

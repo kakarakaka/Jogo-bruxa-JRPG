@@ -177,7 +177,7 @@ MonoBehaviour:
   attack: 10
   specialAttack: 15
   defense: 0
-  speed: 32
+  speed: 8
   skills:
   - skillName: golpe 1
     description: "descri\xE7\xE3o"
