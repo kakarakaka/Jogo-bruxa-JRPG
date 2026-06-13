@@ -572,8 +572,6 @@ public class BattleSystem : MonoBehaviour
         SceneManager.LoadScene(
             worldSceneName);
 
-        SceneManager.LoadScene(
-            worldSceneName);
     }
 
     void LoseBattle()

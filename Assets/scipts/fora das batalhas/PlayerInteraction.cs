@@ -43,6 +43,10 @@ public class PlayerInteraction :
 
                 return;
             }
+            GameObject player =
+    GameObject.FindGameObjectWithTag("Player");
+
+          
         }
     }
 }

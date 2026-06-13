@@ -1,9 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerPositionLoader : MonoBehaviour
 {
-    void Start()
+    IEnumerator Start()
     {
+        yield return null;
+
         transform.position =
             BattleData.playerPosition;
 

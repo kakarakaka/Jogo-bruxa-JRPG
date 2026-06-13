@@ -259,7 +259,15 @@ public class EnemyController :
         BattleData.playerRotation =
             player.rotation;
 
+        Debug.Log(
+    "Salvando posição: "
+    + player.position);
+
         SceneManager.LoadScene(
             "BattleScene");
+
+       
     }
+
+
 }
