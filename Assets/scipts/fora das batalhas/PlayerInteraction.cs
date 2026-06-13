@@ -39,7 +39,9 @@ public class PlayerInteraction :
 
             if (enemy != null)
             {
-                enemy.StartBattle(true);
+                enemy.StartBattle(
+    true,
+    transform);
 
                 return;
             }

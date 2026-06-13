@@ -158,19 +158,28 @@ public class EnemyController :
     // BATTLE
     // =====================
 
-    void OnTriggerEnter(
-        Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(
-            "Player"))
+        if (other.CompareTag("Player"))
         {
-            StartBattle(false);
+            StartBattle(
+                false,
+                other.transform);
         }
     }
 
     public void StartBattle(
-     bool playerStarted)
+    bool playerStarted,
+    Transform playerTransform)
     {
+        Debug.Log(
+    "Player encontrado: "
+    + player.name);
+
+        Debug.Log(
+            "Posição atual: "
+            + player.position);
+
         Debug.Log("StartBattle");
 
         Debug.Log(
@@ -212,8 +221,7 @@ public class EnemyController :
         }
 
         BattleUnit playerUnit =
-            player.GetComponent
-            <BattleUnit>();
+    playerTransform.GetComponent<BattleUnit>();
 
         BattleUnit enemyUnit =
             GetComponent
@@ -254,14 +262,18 @@ public class EnemyController :
     enemyID;
 
         BattleData.playerPosition =
-    player.position;
+            playerTransform.position;
 
         BattleData.playerRotation =
-            player.rotation;
+            playerTransform.rotation;
 
         Debug.Log(
-    "Salvando posição: "
-    + player.position);
+            "Salvando posição de: "
+            + playerTransform.name);
+
+        Debug.Log(
+            "Posição: "
+            + playerTransform.position);
 
         SceneManager.LoadScene(
             "BattleScene");

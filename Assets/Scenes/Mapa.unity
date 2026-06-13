@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 38440389}
   - component: {fileID: 38440388}
   - component: {fileID: 38440387}
+  - component: {fileID: 38440390}
   m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -609,6 +610,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &38440390
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38440385}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &38769517
 GameObject:
   m_ObjectHideFlags: 0
@@ -9948,6 +9970,28 @@ MonoBehaviour:
   bonusDefense: 0
   bonusSpeed: 0
   activeEffects: []
+--- !u!195 &787299204
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787299195}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &792437214
 GameObject:
   m_ObjectHideFlags: 0
@@ -12705,6 +12749,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5443f116dd7898541848dfa9eec0d8d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 787299197}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5443f116dd7898541848dfa9eec0d8d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 787299204}
   m_SourcePrefab: {fileID: 100100000, guid: 5443f116dd7898541848dfa9eec0d8d9, type: 3}
 --- !u!1 &1117960203
 GameObject:
@@ -13904,7 +13951,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213798416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3111604daeecad4a9f9474ee36dd9d6, type: 3}
   m_Name: 
@@ -15210,6 +15257,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 800a4b6af54d8954b99e691f3733c5f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1340143307}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 800a4b6af54d8954b99e691f3733c5f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1340143315}
   m_SourcePrefab: {fileID: 100100000, guid: 800a4b6af54d8954b99e691f3733c5f0, type: 3}
 --- !u!1 &1340143306 stripped
 GameObject:
@@ -15336,6 +15386,28 @@ MonoBehaviour:
   bonusDefense: 0
   bonusSpeed: 0
   activeEffects: []
+--- !u!195 &1340143315
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340143306}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1344890487
 GameObject:
   m_ObjectHideFlags: 0
@@ -25545,7 +25617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1505041700121719069, guid: cd207218352467c46baf705cc2909e62, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3922797101007774960, guid: cd207218352467c46baf705cc2909e62, type: 3}
       propertyPath: m_LocalPosition.x
