@@ -38,7 +38,14 @@ public class EnemyStats :
     public void GenerateStats()
     {
         level =
-            Random.Range(1, 11);
+            BattleData.encounterLevel +
+            Random.Range(-1, 2);
+
+        level =
+    Mathf.Clamp(
+        level,
+        1,
+        999);
 
         maxHP =
             50 + level * 15;

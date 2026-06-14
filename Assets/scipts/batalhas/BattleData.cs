@@ -10,13 +10,15 @@ public static class BattleData
 
     public static Quaternion playerRotation;
 
+    public static int encounterLevel;
 
 
-// =========================
-// PARTY
-// =========================
 
-public static List<GameObject>
+    // =========================
+    // PARTY
+    // =========================
+
+    public static List<GameObject>
         playerParty =
         new List<GameObject>();
 

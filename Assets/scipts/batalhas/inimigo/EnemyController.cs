@@ -4,7 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class EnemyController :
     MonoBehaviour
+
 {
+    [Header("Encounter")]
+    public EnemyEncounterData encounterData;
+
+
     [Header("Save")]
     public string enemyID;
 
@@ -172,6 +177,8 @@ public class EnemyController :
     bool playerStarted,
     Transform playerTransform)
     {
+
+
         Debug.Log(
     "Player encontrado: "
     + player.name);
@@ -201,23 +208,46 @@ public class EnemyController :
             .currentParty;
 
         // quantidade aleatória
+
+
         int enemyCount =
-            Random.Range(1, 5);
+     Random.Range(
+         encounterData.minEnemies,
+         encounterData.maxEnemies + 1);
 
         BattleData.enemyPrefabs.Clear();
 
-        // gera inimigos
-        for (int i = 0;
-            i < enemyCount;
-            i++)
-        {
-            GameObject enemy =
-                EnemyDatabase
-                .Instance
-                .GetRandomEnemy();
+        Debug.Log(
+    "Enemy Count: " +
+    enemyCount);
 
-            BattleData.enemyPrefabs
-                .Add(enemy);
+        Debug.Log(
+            "Possible Enemies: " +
+            encounterData.possibleEnemies.Count);
+
+        for (int i = 0; i < enemyCount; i++)
+        {
+            if (encounterData.possibleEnemies.Count <= 0)
+            {
+                Debug.LogError(
+                    "Lista de inimigos vazia!");
+
+                continue;
+            }
+
+            int random =
+                Random.Range(
+                    0,
+                    encounterData.possibleEnemies.Count);
+
+            GameObject enemy =
+                encounterData.possibleEnemies[random];
+
+            BattleData.enemyPrefabs.Add(enemy);
+
+            Debug.Log(
+                "Inimigo adicionado: "
+                + enemy.name);
         }
 
         BattleUnit playerUnit =
@@ -257,6 +287,11 @@ public class EnemyController :
             BattleData.enemyAmbush =
                 true;
         }
+
+        BattleData.encounterLevel =
+    Random.Range(
+        encounterData.minLevel,
+        encounterData.maxLevel + 1);
 
         BattleData.currentEnemyID =
     enemyID;
