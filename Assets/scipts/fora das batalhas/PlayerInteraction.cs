@@ -34,6 +34,15 @@ public class PlayerInteraction :
                 return;
             }
 
+            FinalBossStatue statue =
+    hit.GetComponent<FinalBossStatue>();
+
+            if (statue != null)
+            {
+                statue.ActivateStatue(transform);
+                return;
+            }
+
             EnemyController enemy =
                 hit.GetComponent<EnemyController>();
 

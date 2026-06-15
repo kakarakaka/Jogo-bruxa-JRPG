@@ -14,3 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopData
   items:
   - {fileID: 11400000, guid: e28a0abdcc7d0fd4f9f8889f07cf4ae2, type: 2}
+  - {fileID: 11400000, guid: ff9c3b6b45004734fbf3dbdde944fb17, type: 2}
+  - {fileID: 11400000, guid: c572d817ea0f15b4fbac1687309b0e9d, type: 2}
+  - {fileID: 11400000, guid: f808b683177fa634b884f4502130bf10, type: 2}
+  - {fileID: 11400000, guid: 7ca9137db1e26de47b85c37df6697bea, type: 2}
+  - {fileID: 11400000, guid: 306bb44466ede5f409f8789af473bd48, type: 2}
+  - {fileID: 11400000, guid: ef8a89f3a5615c64e96217b491bf8cfd, type: 2}
+  - {fileID: 11400000, guid: 1f03223001f92e943967b85ada7a3413, type: 2}
+  - {fileID: 11400000, guid: c5ffe1fa70075174a86289168cbf4e3e, type: 2}
