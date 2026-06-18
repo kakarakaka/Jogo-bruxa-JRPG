@@ -52,6 +52,6 @@ public class CutsceneController : MonoBehaviour
             Quaternion.identity;
 
         SceneManager.LoadScene(
-            "Mapa");
+    BattleData.returnScene);
     }
 }

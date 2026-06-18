@@ -570,7 +570,7 @@ public class BattleSystem : MonoBehaviour
         GiveBattleGold();
 
         SceneManager.LoadScene(
-            worldSceneName);
+            BattleData.returnScene);
 
     }
 

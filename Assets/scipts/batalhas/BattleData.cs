@@ -12,7 +12,11 @@ public static class BattleData
 
     public static int encounterLevel;
 
+    public static string returnScene;
 
+    public static Vector3 dungeonReturnPosition;
+
+    public static Quaternion dungeonReturnRotation;
 
     // =========================
     // PARTY

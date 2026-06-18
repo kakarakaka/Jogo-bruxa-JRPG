@@ -310,6 +310,9 @@ public class EnemyController :
             "Posição: "
             + playerTransform.position);
 
+        BattleData.returnScene =
+    SceneManager.GetActiveScene().name;
+
         SceneManager.LoadScene(
             "BattleScene");
 

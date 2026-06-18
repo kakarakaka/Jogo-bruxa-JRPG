@@ -12187,7 +12187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091dfc8f912582b43ac941096f22a00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossCutsceneController
-  panel: {fileID: 1338673152}
+  panel: {fileID: 1465560299}
   dialogueText: {fileID: 1250034642}
   cutsceneImage: {fileID: 669611152}
 --- !u!1 &1071985395
@@ -13209,6 +13209,7 @@ GameObject:
   - component: {fileID: 1183486682}
   - component: {fileID: 1183486681}
   - component: {fileID: 1183486680}
+  - component: {fileID: 1183486683}
   - component: {fileID: 1183486679}
   m_Layer: 0
   m_Name: Cube (1)
@@ -13310,6 +13311,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 47.66, z: 0}
+--- !u!114 &1183486683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183486678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed444ac753eb98459b138c7568c2aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DungeonEntrance
+  sceneName: dungeon
 --- !u!1 &1195065938
 GameObject:
   m_ObjectHideFlags: 0

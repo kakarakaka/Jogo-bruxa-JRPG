@@ -57,7 +57,24 @@ public class PlayerInteraction :
             GameObject player =
     GameObject.FindGameObjectWithTag("Player");
 
-          
+            DungeonEntrance dungeon =
+      hit.GetComponent<DungeonEntrance>();
+
+            if (dungeon != null)
+            {
+                dungeon.EnterDungeon();
+                return;
+            }
+
+            DungeonExit exit =
+    hit.GetComponent<DungeonExit>();
+
+            if (exit != null)
+            {
+                exit.ExitDungeon();
+                return;
+            }
+
         }
     }
 }
