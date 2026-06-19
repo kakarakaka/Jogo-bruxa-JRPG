@@ -7,6 +7,10 @@ public class DungeonExit : MonoBehaviour
 
     public void ExitDungeon()
     {
+        Debug.Log(
+            "SAINDO DA DUNGEON PARA: "
+            + BattleData.dungeonReturnPosition);
+
         BattleData.playerPosition =
             BattleData.dungeonReturnPosition;
 

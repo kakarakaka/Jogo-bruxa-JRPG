@@ -8383,7 +8383,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.00007795711}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -525.6, y: 115}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &572332579
 MonoBehaviour:
@@ -8986,7 +8986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: cd60dea2ff9b2014dbe6afeab6f4999e, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -12550,10 +12550,11 @@ MonoBehaviour:
   item4: {fileID: 11400000, guid: 1f03223001f92e943967b85ada7a3413, type: 2}
   item5: {fileID: 11400000, guid: c5ffe1fa70075174a86289168cbf4e3e, type: 2}
   finalBoss: {fileID: 1069980152}
-  cutsceneImage: {fileID: 2800000, guid: 2c56f8eff4a6d304ea1856966facc075, type: 3}
+  cutsceneImage: {fileID: 2800000, guid: cd60dea2ff9b2014dbe6afeab6f4999e, type: 3}
   cutsceneLines:
-  - comi o cu de quem ta lendo kkkkkkkkkkkkkkkkkkk
-  cutsceneText: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  - "\u201CJ\xC1 CHEGA! EU SEI O QUE VOC\xCA EST\xC1 PLANEJANDO E IREI TE IMPEDIR!\u201D\r\n"
+  - "\u201CPELO BEM DESTA FLORESTA, VOC\xCA VAI MORRER!\u201D"
+  cutsceneText: 
 --- !u!114 &1069980166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13041,14 +13042,14 @@ RectTransform:
   m_GameObject: {fileID: 1119327660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -16.23, y: 11.38, z: 11.38}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 11.38, y: 11.38, z: 11.38}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1751576961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -387.55, y: 0}
+  m_AnchoredPosition: {x: -638, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1119327662
@@ -13071,7 +13072,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 510f79ada45e8f94898a73cbf5cb5020, type: 3}
+  m_Texture: {fileID: 2800000, guid: c711f52e28db6d04f915b7a96b13bf6f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -15770,9 +15771,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneController
   dialogueText: {fileID: 1250034642}
   dialogueLines:
-  - 'comi o cu de quem ta lendo
-
-'
+  - "\u201CJ\xC1 CHEGA! EU SEI O QUE VOC\xCA EST\xC1 PLANEJANDO E IREI TE IMPEDIR!\u201D"
+  - "\u201CPELO BEM DESTA FLORESTA, VOC\xCA VAI MORRER!\u201D"
 --- !u!114 &1338673155
 MonoBehaviour:
   m_ObjectHideFlags: 0

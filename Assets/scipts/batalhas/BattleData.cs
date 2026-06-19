@@ -1,22 +1,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public static class BattleData
 {
     public static bool firstGameStart = true;
 
-    public static Vector3 playerPosition;
+    // =========================
+    // POSIÇÃO DO PLAYER
+    // =========================
 
+    public static Vector3 playerPosition;
     public static Quaternion playerRotation;
 
-    public static int encounterLevel;
+    // posição salva antes da batalha
+    public static Vector3 lastWorldPosition;
+    public static Quaternion lastWorldRotation;
 
+    // posição da entrada da dungeon
+    public static Vector3 dungeonReturnPosition;
+    public static Quaternion dungeonReturnRotation;
+
+    // identifica se o player está no mapa ou dungeon
+    public static string lastWorldType = "mapa";
+
+    // cena para retornar após batalha
     public static string returnScene;
 
-    public static Vector3 dungeonReturnPosition;
-
-    public static Quaternion dungeonReturnRotation;
+    public static int encounterLevel;
 
     // =========================
     // PARTY
@@ -39,7 +49,6 @@ public static class BattleData
     // =========================
 
     public static bool playerAmbush;
-
     public static bool enemyAmbush;
 
     // =========================
@@ -73,5 +82,4 @@ public static class BattleData
     // =========================
 
     public static int gold = 999999999;
-
 }

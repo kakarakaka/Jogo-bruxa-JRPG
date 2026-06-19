@@ -569,8 +569,18 @@ public class BattleSystem : MonoBehaviour
 
         GiveBattleGold();
 
-        SceneManager.LoadScene(
-            BattleData.returnScene);
+        Debug.Log(
+    "POSIÇÃO AO TERMINAR BATALHA: "
+    + BattleData.playerPosition);
+
+        Debug.Log(
+            "DUNGEON RETURN POSITION: "
+            + BattleData.dungeonReturnPosition);
+
+        BattleData.playerPosition = BattleData.lastWorldPosition;
+        BattleData.playerRotation = BattleData.lastWorldRotation;
+
+        SceneManager.LoadScene(BattleData.returnScene);
 
     }
 

@@ -174,67 +174,60 @@ public class EnemyController :
     }
 
     public void StartBattle(
-    bool playerStarted,
-    Transform playerTransform)
+     bool playerStarted,
+     Transform playerTransform)
     {
+        Debug.Log(
+            "Player encontrado: "
+            + playerTransform.name);
 
+        // =====================
+        // SALVAR RETORNO
+        // =====================
+
+        BattleData.lastWorldPosition =
+            playerTransform.position;
+
+        BattleData.lastWorldRotation =
+            playerTransform.rotation;
+
+        BattleData.playerPosition =
+            playerTransform.position;
+
+        BattleData.playerRotation =
+            playerTransform.rotation;
+
+        BattleData.returnScene =
+            SceneManager.GetActiveScene().name;
 
         Debug.Log(
-    "Player encontrado: "
-    + player.name);
+            "POSIÇÃO SALVA: "
+            + BattleData.playerPosition);
 
         Debug.Log(
-            "Posição atual: "
-            + player.position);
-
-        Debug.Log("StartBattle");
+            "ROTAÇÃO SALVA: "
+            + BattleData.playerRotation);
 
         Debug.Log(
-            "PartyManager: "
-            + PartyManager.Instance);
+            "SCENE SALVA: "
+            + BattleData.returnScene);
 
-        Debug.Log(
-            "EnemyDatabase: "
-            + EnemyDatabase.Instance);
-
-        Debug.Log(
-            "Player: "
-            + player);
-
+        // =====================
         // PARTY
+        // =====================
+
         BattleData.playerParty =
-            PartyManager
-            .Instance
-            .currentParty;
-
-        // quantidade aleatória
-
+            PartyManager.Instance.currentParty;
 
         int enemyCount =
-     Random.Range(
-         encounterData.minEnemies,
-         encounterData.maxEnemies + 1);
+            Random.Range(
+                encounterData.minEnemies,
+                encounterData.maxEnemies + 1);
 
         BattleData.enemyPrefabs.Clear();
 
-        Debug.Log(
-    "Enemy Count: " +
-    enemyCount);
-
-        Debug.Log(
-            "Possible Enemies: " +
-            encounterData.possibleEnemies.Count);
-
         for (int i = 0; i < enemyCount; i++)
         {
-            if (encounterData.possibleEnemies.Count <= 0)
-            {
-                Debug.LogError(
-                    "Lista de inimigos vazia!");
-
-                continue;
-            }
-
             int random =
                 Random.Range(
                     0,
@@ -251,22 +244,17 @@ public class EnemyController :
         }
 
         BattleUnit playerUnit =
-    playerTransform.GetComponent<BattleUnit>();
+            playerTransform.GetComponent<BattleUnit>();
 
         BattleUnit enemyUnit =
-            GetComponent
-            <BattleUnit>();
+            GetComponent<BattleUnit>();
 
-        // iniciativa
         if (playerStarted)
         {
             if (!playerVisible)
             {
-                BattleData.playerAmbush =
-                    true;
-
-                BattleData.enemyAmbush =
-                    false;
+                BattleData.playerAmbush = true;
+                BattleData.enemyAmbush = false;
             }
             else
             {
@@ -281,43 +269,20 @@ public class EnemyController :
         }
         else
         {
-            BattleData.playerAmbush =
-                false;
-
-            BattleData.enemyAmbush =
-                true;
+            BattleData.playerAmbush = false;
+            BattleData.enemyAmbush = true;
         }
 
         BattleData.encounterLevel =
-    Random.Range(
-        encounterData.minLevel,
-        encounterData.maxLevel + 1);
+            Random.Range(
+                encounterData.minLevel,
+                encounterData.maxLevel + 1);
 
         BattleData.currentEnemyID =
-    enemyID;
-
-        BattleData.playerPosition =
-            playerTransform.position;
-
-        BattleData.playerRotation =
-            playerTransform.rotation;
-
-        Debug.Log(
-            "Salvando posição de: "
-            + playerTransform.name);
-
-        Debug.Log(
-            "Posição: "
-            + playerTransform.position);
-
-        BattleData.returnScene =
-    SceneManager.GetActiveScene().name;
+            enemyID;
 
         SceneManager.LoadScene(
             "BattleScene");
-
-       
     }
-
 
 }
