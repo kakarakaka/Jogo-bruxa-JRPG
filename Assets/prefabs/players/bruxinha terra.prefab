@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   level: 1
   spentLevels: 0
-  characterID: 
+  characterID: Terra
   characterName: Terra
   maxHP: 100
   maxMP: 50
@@ -215,13 +215,12 @@ MonoBehaviour:
     effectPower: 0
     effectDuration: 0
     equipped: 0
-  - skillName: discarga mortal
-    description: "solta uma discarga el\xE9trica capaz de paralizar o inimigo (n\xE3o
-      confunda este golpe com \"dedada mortal\")"
+  - skillName: golpe 5
+    description: "descri\xE7\xE3o"
     skillType: 2
     damage: 0
     mpCost: 0
-    effectType: 9
+    effectType: 3
     effectPower: 0
     effectDuration: 3
     equipped: 0

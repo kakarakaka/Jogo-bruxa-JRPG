@@ -10,7 +10,7 @@ public class FinalBossCutscene : MonoBehaviour
     [Header("UI")]
     public GameObject panel;
 
-    public Image image;
+    public RawImage image;
 
     public TextMeshProUGUI dialogueText;
 
@@ -22,12 +22,12 @@ public class FinalBossCutscene : MonoBehaviour
     }
 
     public IEnumerator PlayCutscene(
-        Sprite cutsceneImage,
-        string text)
+     Texture cutsceneImage,
+     string text)
     {
         panel.SetActive(true);
 
-        image.sprite = cutsceneImage;
+        image.texture = cutsceneImage;
 
         dialogueText.text = text;
 

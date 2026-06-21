@@ -1,15 +1,12 @@
 using UnityEngine;
 
-public class PlayerInteraction :
-    MonoBehaviour
+public class PlayerInteraction : MonoBehaviour
 {
-    public float interactDistance =
-        3f;
+    public float interactDistance = 3f;
 
     void Update()
     {
-        if (Input.GetKeyDown(
-            KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             TryInteraction();
         }
@@ -30,16 +27,24 @@ public class PlayerInteraction :
             if (shop != null)
             {
                 shop.OpenShop();
-
                 return;
             }
 
             FinalBossStatue statue =
-    hit.GetComponent<FinalBossStatue>();
+                hit.GetComponent<FinalBossStatue>();
 
             if (statue != null)
             {
                 statue.ActivateStatue(transform);
+                return;
+            }
+
+            BossCutsceneTrigger bossTrigger =
+                hit.GetComponent<BossCutsceneTrigger>();
+
+            if (bossTrigger != null)
+            {
+                bossTrigger.ActivateBoss(transform);
                 return;
             }
 
@@ -49,16 +54,14 @@ public class PlayerInteraction :
             if (enemy != null)
             {
                 enemy.StartBattle(
-    true,
-    transform);
+                    true,
+                    transform);
 
                 return;
             }
-            GameObject player =
-    GameObject.FindGameObjectWithTag("Player");
 
             DungeonEntrance dungeon =
-      hit.GetComponent<DungeonEntrance>();
+                hit.GetComponent<DungeonEntrance>();
 
             if (dungeon != null)
             {
@@ -67,14 +70,13 @@ public class PlayerInteraction :
             }
 
             DungeonExit exit =
-    hit.GetComponent<DungeonExit>();
+                hit.GetComponent<DungeonExit>();
 
             if (exit != null)
             {
                 exit.ExitDungeon();
                 return;
             }
-
         }
     }
 }

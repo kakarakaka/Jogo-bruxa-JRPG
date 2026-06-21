@@ -569,6 +569,27 @@ public class BattleSystem : MonoBehaviour
 
         GiveBattleGold();
 
+        Debug.Log("Boss drops count: " + BattleData.pendingBossDrops.Count);
+
+        foreach (ItemData item
+     in BattleData.pendingBossDrops)
+        {
+            if (item == null)
+                continue;
+
+            Inventory.Instance.AddItem(
+                item,
+                1);
+
+            Debug.Log(
+                "Drop recebido: "
+                + item.itemName);
+
+            Debug.Log("Drop encontrado: " + item);
+        }
+
+        BattleData.pendingBossDrops.Clear();
+
         Debug.Log(
     "POSIÇÃO AO TERMINAR BATALHA: "
     + BattleData.playerPosition);
@@ -620,5 +641,7 @@ public class BattleSystem : MonoBehaviour
 
         BattleData.gold += totalGold;
     }
+
+
 
 }

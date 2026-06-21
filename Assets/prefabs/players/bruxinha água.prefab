@@ -177,9 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   level: 1
-  storedXP: 0
-  xpSpent: 0
-  characterID: 
+  spentLevels: 0
+  characterID: Agua
   characterName: "\xC1gua"
   maxHP: 100
   maxMP: 50

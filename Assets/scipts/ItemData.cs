@@ -9,6 +9,13 @@ public class ItemData : ScriptableObject
     public int buyPrice = 100;
     public int sellPrice = 50;
 
+    [Header("Skill Book")]
+    public Skill unlockSkill;
+
+    public string allowedCharacterID;
+
+
+
     [Header("Informações")]
     public string itemName;
 

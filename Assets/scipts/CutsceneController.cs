@@ -9,6 +9,8 @@ public class CutsceneController : MonoBehaviour
     [TextArea]
     public string[] dialogueLines;
 
+    public string nextScene;
+
     private int currentLine = 0;
 
     void Start()
@@ -35,7 +37,6 @@ public class CutsceneController : MonoBehaviour
         if (currentLine >= dialogueLines.Length)
         {
             StartGame();
-
             return;
         }
 
@@ -51,7 +52,6 @@ public class CutsceneController : MonoBehaviour
         BattleData.playerRotation =
             Quaternion.identity;
 
-        SceneManager.LoadScene(
-    BattleData.returnScene);
+        SceneManager.LoadScene(nextScene);
     }
 }

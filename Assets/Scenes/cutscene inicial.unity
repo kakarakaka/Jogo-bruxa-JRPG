@@ -737,6 +737,7 @@ MonoBehaviour:
   - "Ela sabia que para conseguir seu objetivo ela precisaria dominar os animais
     e derrotar o esp\xEDrito da floresta para roubar seu poder.\r\n"
   - "Com suas c\xF3pias elementais, a bruxinha parte para uma aventura\u2026\r\n"
+  nextScene: Mapa
 --- !u!1 &1947366487
 GameObject:
   m_ObjectHideFlags: 0

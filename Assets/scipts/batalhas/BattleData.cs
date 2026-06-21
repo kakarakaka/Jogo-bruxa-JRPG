@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public static class BattleData
 {
@@ -27,6 +28,13 @@ public static class BattleData
     public static string returnScene;
 
     public static int encounterLevel;
+
+    public static List<ItemData>
+    pendingBossDrops =
+    new List<ItemData>();
+
+    public static Dictionary<string, List<Skill>> savedSkills
+    = new Dictionary<string, List<Skill>>();
 
     // =========================
     // PARTY
@@ -82,4 +90,6 @@ public static class BattleData
     // =========================
 
     public static int gold = 999999999;
+
+   
 }

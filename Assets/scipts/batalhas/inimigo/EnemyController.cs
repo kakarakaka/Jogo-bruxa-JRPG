@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,12 @@ public class EnemyController :
 {
     [Header("Encounter")]
     public EnemyEncounterData encounterData;
+
+    [Header("Boss")]
+    public bool isBoss;
+
+    public List<ItemData> bossDrops =
+        new List<ItemData>();
 
 
     [Header("Save")]
@@ -280,6 +287,18 @@ public class EnemyController :
 
         BattleData.currentEnemyID =
             enemyID;
+
+        BattleData.pendingBossDrops.Clear();
+
+        if (isBoss)
+        {
+            BattleData.pendingBossDrops =
+                new List<ItemData>(bossDrops);
+        }
+        else
+        {
+            BattleData.pendingBossDrops.Clear();
+        }
 
         SceneManager.LoadScene(
             "BattleScene");

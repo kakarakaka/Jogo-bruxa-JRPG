@@ -3,24 +3,17 @@ using System.Collections;
 
 public class PlayerPositionLoader : MonoBehaviour
 {
-    void Awake()
-    {
-        Debug.Log(
-            "PlayerPositionLoader Awake -> "
-            + gameObject.name);
-    }
-
     IEnumerator Start()
     {
         yield return null;
 
         Debug.Log(
-            "Aplicando posição em -> "
-            + gameObject.name);
+            "POSIÇÃO CARREGADA: " +
+            BattleData.playerPosition);
 
         Debug.Log(
-            "Posição salva -> "
-            + BattleData.playerPosition);
+            "ROTAÇÃO CARREGADA: " +
+            BattleData.playerRotation);
 
         transform.position =
             BattleData.playerPosition;
