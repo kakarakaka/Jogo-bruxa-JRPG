@@ -1,0 +1,346 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6048429579338071244
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -125.083
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30.77
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -112.336
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2519436022900607863, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d481d3337be93f48a45d85ff7f096af, type: 2}
+    - target: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      propertyPath: m_Name
+      value: espirito da floresta
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 728140972719597279}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8538112610856778792}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1991581178222146610}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 65675742727190644}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8366858236995735273}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7246384344071446100}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7114588242011196215}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6838901980544645801}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 497687361690952157}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8457341905796717327}
+  m_SourcePrefab: {fileID: 100100000, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+--- !u!1 &6859333500301214109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d5e061fe17fbd2e4a9b6e171541b010e, type: 3}
+  m_PrefabInstance: {fileID: 6048429579338071244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &728140972719597279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859333500301214109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d34247b1106e8245a00eb16f6933751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUnit
+  isEnemy: 1
+  characterStats: {fileID: 0}
+  enemyStats: {fileID: 8538112610856778792}
+  currentHP: 0
+  currentMP: 0
+  bonusAttack: 0
+  bonusDefense: 0
+  bonusSpeed: 0
+  activeEffects: []
+--- !u!114 &8538112610856778792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859333500301214109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4462dbc852cbf8c42b0ffd247678d522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
+  enemyName: espirito da floresta
+  level: 1
+  maxHP: 100
+  attack: 10
+  specialAttack: 15
+  defense: 0
+  speed: 7
+  knownSkills:
+  - skillName: golpe 1
+    description: "descri\xE7\xE3o"
+    skillType: 1
+    damage: 10
+    mpCost: 0
+    effectType: 0
+    effectPower: 0
+    effectDuration: 0
+    equipped: 0
+  - skillName: golpe 2
+    description: "descri\xE7\xE3o"
+    skillType: 2
+    damage: 0
+    mpCost: 0
+    effectType: 3
+    effectPower: 8
+    effectDuration: 3
+    equipped: 0
+  - skillName: golpe 3
+    description: "descri\xE7\xE3o"
+    skillType: 0
+    damage: 30
+    mpCost: 0
+    effectType: 0
+    effectPower: 8
+    effectDuration: 3
+    equipped: 0
+  - skillName: golpe 4
+    description: "descri\xE7\xE3o"
+    skillType: 0
+    damage: 20
+    mpCost: 0
+    effectType: 0
+    effectPower: 8
+    effectDuration: 3
+    equipped: 0
+  equippedSkills: []
+--- !u!114 &1991581178222146610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859333500301214109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9a39c95b67d3b40a1662d140f1a044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  encounterData:
+    minLevel: 50
+    maxLevel: 50
+    minEnemies: 1
+    maxEnemies: 1
+    possibleEnemies:
+    - {fileID: 6859333500301214109}
+  isBoss: 1
+  bossDrops: []
+  enemyID: FinalBoss
+  viewDistance: 10
+  viewAngle: 90
+  patrolRadius: 10
+  patrolSpeed: 2
+  chaseSpeed: 6
+--- !u!114 &65675742727190644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859333500301214109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f266cfac4e542468b297793c182e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+--- !u!114 &8366858236995735273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859333500301214109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78266f49f4da5d74faf6a7c77d0c1e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefeatedEnemyChecker
+--- !u!114 &7246384344071446100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859333500301214109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c947797067f397b4984c22fb5aa5e725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FinalBossEnding
+  guardianBook: {fileID: 11400000, guid: 0681a4e5ed6e4f34ca10040ea605b23b, type: 2}
+  normalImage: {fileID: 2800000, guid: 6945b44266b69924890a5a016a4d6793, type: 3}
+  normalLines:
+  - "Ap\xF3s derrotar o esp\xEDrito da floresta, a bruxa conseguiu roubar o seu poder
+    e virar a rainha da floresta.\r\n"
+  - Um final feliz para a bruxinha.
+  - Final 1 /2.
+  secretImage: {fileID: 2800000, guid: cbcbf236f29898a4a980c0d861af5a68, type: 3}
+  secretLines:
+  - "A jovem bruxa n\xE3o apenas conseguiu roubar os poderes do esp\xEDrito da floresta,
+    mas tamb\xE9m conseguiu o tomo proibido da caverna dos sussurros.\r\n"
+  - "Com todo esse poder a bruxinha \xE9 invenc\xEDvel. "
+  - Seu objetivo deixou de ser a rainha apenas da floresta, mas agora de todo o mundo.
+  - "A bruxinha n\xE3o poderia estar mais feliz."
+  - Final 2 /2.
+--- !u!195 &7114588242011196215
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859333500301214109}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!65 &6838901980544645801
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859333500301214109}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.08, z: 1}
+  m_Center: {x: 0, y: 1.04, z: 0}
+--- !u!54 &497687361690952157
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859333500301214109}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!95 &8457341905796717327
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859333500301214109}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 17fc7d40c15a9d24f9a5148b1aa8af26, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

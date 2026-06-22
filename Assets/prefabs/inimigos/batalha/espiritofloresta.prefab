@@ -85,6 +85,9 @@ PrefabInstance:
       addedObject: {fileID: 2922558351316328452}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5443f116dd7898541848dfa9eec0d8d9, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 2309271301907015131}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5443f116dd7898541848dfa9eec0d8d9, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 128322334095419643}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5443f116dd7898541848dfa9eec0d8d9, type: 3}
       insertIndex: -1
@@ -195,7 +198,9 @@ MonoBehaviour:
     maxEnemies: 1
     possibleEnemies:
     - {fileID: 4407169633155946139}
-  enemyID: boss_01
+  isBoss: 1
+  bossDrops: []
+  enemyID: FinalBoss
   viewDistance: 10
   viewAngle: 90
   patrolRadius: 10
@@ -225,6 +230,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78266f49f4da5d74faf6a7c77d0c1e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefeatedEnemyChecker
+--- !u!114 &2309271301907015131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407169633155946139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c947797067f397b4984c22fb5aa5e725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FinalBossEnding
+  guardianBook: {fileID: 11400000, guid: 0681a4e5ed6e4f34ca10040ea605b23b, type: 2}
+  normalImage: {fileID: 2800000, guid: 6945b44266b69924890a5a016a4d6793, type: 3}
+  normalLines:
+  - "Ap\xF3s derrotar o esp\xEDrito da floresta, a bruxa conseguiu roubar o seu poder
+    e virar a rainha da floresta.\r\n"
+  - Um final feliz para a bruxinha.
+  - Final 1 /2.
+  secretImage: {fileID: 2800000, guid: cbcbf236f29898a4a980c0d861af5a68, type: 3}
+  secretLines:
+  - "A jovem bruxa n\xE3o apenas conseguiu roubar os poderes do esp\xEDrito da floresta,
+    mas tamb\xE9m conseguiu o tomo proibido da caverna dos sussurros.\r\n"
+  - "Com todo esse poder a bruxinha \xE9 invenc\xEDvel. "
+  - Seu objetivo deixou de ser a rainha apenas da floresta, mas agora de todo o mundo.
+  - "A bruxinha n\xE3o poderia estar mais feliz."
+  - Final 2 /2.
 --- !u!65 &128322334095419643
 BoxCollider:
   m_ObjectHideFlags: 0

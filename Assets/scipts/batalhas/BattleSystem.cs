@@ -554,55 +554,64 @@ public class BattleSystem : MonoBehaviour
 
     void WinBattle()
     {
+        Debug.Log(
+    "EnemyID atual = " +
+    BattleData.currentEnemyID);
+
         Debug.Log("Vitória!");
 
-        if (!string.IsNullOrEmpty(
-            BattleData.currentEnemyID))
+        if (!string.IsNullOrEmpty(BattleData.currentEnemyID))
         {
-            BattleData.defeatedEnemies.Add(
-                BattleData.currentEnemyID);
-
-            Debug.Log(
-                "Inimigo derrotado: "
-                + BattleData.currentEnemyID);
+            BattleData.defeatedEnemies.Add(BattleData.currentEnemyID);
         }
 
         GiveBattleGold();
 
-        Debug.Log("Boss drops count: " + BattleData.pendingBossDrops.Count);
-
-        foreach (ItemData item
-     in BattleData.pendingBossDrops)
+        // =========================
+        // DROPS
+        // =========================
+        foreach (ItemData item in BattleData.pendingBossDrops)
         {
             if (item == null)
                 continue;
 
-            Inventory.Instance.AddItem(
-                item,
-                1);
-
-            Debug.Log(
-                "Drop recebido: "
-                + item.itemName);
-
-            Debug.Log("Drop encontrado: " + item);
+            Inventory.Instance.AddItem(item, 1);
+            Debug.Log("Drop recebido: " + item.itemName);
         }
 
         BattleData.pendingBossDrops.Clear();
 
-        Debug.Log(
-    "POSIÇÃO AO TERMINAR BATALHA: "
-    + BattleData.playerPosition);
+        // =========================
+        // FINAL BOSS CHECK
+        // =========================
 
         Debug.Log(
-            "DUNGEON RETURN POSITION: "
-            + BattleData.dungeonReturnPosition);
+     "Comparando com FinalBoss: " +
+     BattleData.currentEnemyID);
+
+        if (BattleData.currentEnemyID == "FinalBoss")
+        {
+            Debug.Log(
+       "FINAL BOSS DETECTADO!");
+            SceneManager.LoadScene("EndingScene");
+            return;
+        }
+
+        if (BattleData.gameFinished)
+        {
+            SceneManager.LoadScene("menu principal");
+            return;
+        }
+        // =========================
+        // RETORNO NORMAL
+        // =========================
+        if (BattleData.endingCutsceneActive)
+            return;
 
         BattleData.playerPosition = BattleData.lastWorldPosition;
         BattleData.playerRotation = BattleData.lastWorldRotation;
 
         SceneManager.LoadScene(BattleData.returnScene);
-
     }
 
     void LoseBattle()
@@ -642,6 +651,8 @@ public class BattleSystem : MonoBehaviour
         BattleData.gold += totalGold;
     }
 
+    
+    
 
 
 }

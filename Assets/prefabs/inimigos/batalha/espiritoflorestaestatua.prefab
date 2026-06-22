@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleUnit
   isEnemy: 1
   characterStats: {fileID: 0}
-  enemyStats: {fileID: 0}
+  enemyStats: {fileID: 8538112610856778792, guid: 99104402105611742a36740d74662bd2, type: 3}
   currentHP: 0
   currentMP: 0
   bonusAttack: 0
@@ -202,8 +202,10 @@ MonoBehaviour:
     minEnemies: 1
     maxEnemies: 4
     possibleEnemies:
-    - {fileID: 0}
-  enemyID: boss_01
+    - {fileID: 6859333500301214109, guid: 99104402105611742a36740d74662bd2, type: 3}
+  isBoss: 1
+  bossDrops: []
+  enemyID: FinalBoss
   viewDistance: 10
   viewAngle: 90
   patrolRadius: 10

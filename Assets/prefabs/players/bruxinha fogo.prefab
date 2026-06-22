@@ -187,41 +187,44 @@ MonoBehaviour:
   defense: 0
   speed: 8
   skills:
-  - skillName: golpe 1
-    description: "descri\xE7\xE3o"
-    skillType: 0
-    damage: 5
-    mpCost: 0
-    effectType: 0
-    effectPower: 0
-    effectDuration: 0
-    equipped: 0
-  - skillName: golpe 2
-    description: "descri\xE7\xE3o"
+  - skillName: "o ch\xE3o \xE9 lava"
+    description: joga um jato de lava contra o oponente o danificando e o queimando
+      por 2 turnos
     skillType: 1
     damage: 10
-    mpCost: 0
+    mpCost: 15
+    effectType: 2
+    effectPower: 5
+    effectDuration: 2
+    equipped: 0
+  - skillName: bola de fogo
+    description: joga uma bola de fogo contra o oponente
+    skillType: 1
+    damage: 10
+    mpCost: 5
     effectType: 0
     effectPower: 0
     effectDuration: 0
     equipped: 0
-  - skillName: golpe 3
-    description: "descri\xE7\xE3o"
-    skillType: 0
-    damage: 20
-    mpCost: 0
-    effectType: 0
-    effectPower: 0
-    effectDuration: 0
-    equipped: 0
-  - skillName: golpe 4
-    description: "descri\xE7\xE3o"
+  - skillName: calor da batalha
+    description: utiliza o calor da batalha para se encher de furia e desferir uma
+      sequencia de golpes
     skillType: 0
     damage: 15
     mpCost: 0
     effectType: 0
     effectPower: 0
     effectDuration: 0
+    equipped: 0
+  - skillName: "pris\xE3o de chamas"
+    description: cria uma gaiola de fogo ao redor do oponente, causando queimaduras
+      por 5 turnos
+    skillType: 1
+    damage: 0
+    mpCost: 30
+    effectType: 2
+    effectPower: 10
+    effectDuration: 5
     equipped: 0
 --- !u!114 &189760242304105062
 MonoBehaviour:
@@ -257,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
   interactDistance: 3
+  interactPrompt: {fileID: 1865112807637673130, guid: 75dfdba380bd49c4a952ed4ee8b3b861, type: 3}
 --- !u!114 &2078450009412402866
 MonoBehaviour:
   m_ObjectHideFlags: 0

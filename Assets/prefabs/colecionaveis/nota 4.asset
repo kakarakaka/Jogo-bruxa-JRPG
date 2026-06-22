@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bdf28cad9311b4ea011c18ac3dd2a9, type: 3}
+  m_Name: nota 4
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleData
+  id: nota4
+  collectibleName: Nota 4
+  description: "Tem uma bruxa solit\xE1ria que vive nesta floresta, eu tentei conversar
+    com ela uma vez, mas n\xE3o deu muito certo, ela foi rude comigo e disse que
+    tinha coisas mais importantes pra fazer em vez de ficar gastando tempo comigo."
+  icon: {fileID: 2800000, guid: 4a20a72ee300b8f46ac290d407680a50, type: 3}

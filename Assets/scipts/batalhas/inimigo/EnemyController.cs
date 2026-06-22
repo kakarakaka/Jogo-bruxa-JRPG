@@ -6,7 +6,12 @@ using UnityEngine.SceneManagement;
 public class EnemyController :
     MonoBehaviour
 
+
+
 {
+    Animator animator;
+    Vector3 lastPosition;
+
     [Header("Encounter")]
     public EnemyEncounterData encounterData;
 
@@ -42,6 +47,10 @@ public class EnemyController :
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
+        lastPosition = transform.position;
+
         player =
             GameObject
             .FindGameObjectWithTag(
@@ -56,6 +65,17 @@ public class EnemyController :
 
     void Update()
     {
+        float speed =
+    Vector3.Distance(
+        transform.position,
+        lastPosition) / Time.deltaTime;
+
+        animator.SetBool(
+            "Walking",
+            speed > 0.05f);
+
+        lastPosition = transform.position;
+
         CheckVision();
 
         if (playerVisible)

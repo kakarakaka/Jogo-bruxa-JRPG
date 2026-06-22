@@ -3,9 +3,12 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactDistance = 3f;
+    public GameObject interactPrompt;
 
     void Update()
     {
+        CheckInteraction();
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             TryInteraction();
@@ -77,6 +80,41 @@ public class PlayerInteraction : MonoBehaviour
                 exit.ExitDungeon();
                 return;
             }
+
+            CollectibleItem collectible =
+    hit.GetComponent<CollectibleItem>();
+
+            if (collectible != null)
+            {
+                collectible.Interact();
+                return;
+            }
+
         }
+    }
+    void CheckInteraction()
+    {
+        bool canInteract = false;
+
+        Collider[] hits = Physics.OverlapSphere(
+            transform.position,
+            interactDistance);
+
+        foreach (Collider hit in hits)
+        {
+            if (hit.GetComponent<ShopTrigger>() != null ||
+                hit.GetComponent<FinalBossStatue>() != null ||
+                hit.GetComponent<BossCutsceneTrigger>() != null ||
+                hit.GetComponent<EnemyController>() != null ||
+                hit.GetComponent<DungeonEntrance>() != null ||
+                hit.GetComponent<DungeonExit>() != null ||
+                hit.GetComponent<CollectibleItem>() != null)
+            {
+                canInteract = true;
+                break;
+            }
+        }
+
+        interactPrompt.SetActive(canInteract);
     }
 }

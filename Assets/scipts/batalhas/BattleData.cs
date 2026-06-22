@@ -5,6 +5,8 @@ using UnityEngine.TextCore.Text;
 public static class BattleData
 {
     public static bool firstGameStart = true;
+    public static bool gameFinished;
+    public static bool endingCutsceneActive;
 
     // =========================
     // POSIÇÃO DO PLAYER

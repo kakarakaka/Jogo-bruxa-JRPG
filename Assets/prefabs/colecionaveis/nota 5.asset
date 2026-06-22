@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bdf28cad9311b4ea011c18ac3dd2a9, type: 3}
+  m_Name: nota 5
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleData
+  id: nota5
+  collectibleName: Nota 5
+  description: "A caverna dos sussurros possui esse nome por causa de in\xFAmeros
+    relatos de uma presen\xE7a misteriosa na caverna\u2026"
+  icon: {fileID: 2800000, guid: 4a20a72ee300b8f46ac290d407680a50, type: 3}

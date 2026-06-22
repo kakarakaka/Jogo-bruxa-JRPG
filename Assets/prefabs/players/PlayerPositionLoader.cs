@@ -7,18 +7,15 @@ public class PlayerPositionLoader : MonoBehaviour
     {
         yield return null;
 
-        Debug.Log(
-            "POSI플O CARREGADA: " +
-            BattleData.playerPosition);
+        if (BattleData.gameFinished)
+        {
+            yield break; 
+        }
 
-        Debug.Log(
-            "ROTA플O CARREGADA: " +
-            BattleData.playerRotation);
+        Debug.Log("POSI플O CARREGADA: " + BattleData.playerPosition);
+        Debug.Log("ROTA플O CARREGADA: " + BattleData.playerRotation);
 
-        transform.position =
-            BattleData.playerPosition;
-
-        transform.rotation =
-            BattleData.playerRotation;
+        transform.position = BattleData.playerPosition;
+        transform.rotation = BattleData.playerRotation;
     }
 }

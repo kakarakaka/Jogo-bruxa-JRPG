@@ -38,7 +38,8 @@ public class FinalBossStatue : MonoBehaviour
     {
         if (!HasAllItems())
         {
-            Debug.Log("Faltam artefatos.");
+            MessageUI.Instance.ShowMessage(
+                    "Você ainda não possui as 5 pedras para o rital.");
             return;
         }
 

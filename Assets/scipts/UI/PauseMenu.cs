@@ -24,6 +24,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject settingsPanel;
 
+    public GameObject escHint;
+
 
     private bool paused = false;
 
@@ -40,6 +42,8 @@ public class PauseMenu : MonoBehaviour
         skillsPanel.SetActive(false);
 
         settingsPanel.SetActive(false);
+
+        escHint.SetActive(true);
     }
 
     void Update()
@@ -56,6 +60,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        escHint.SetActive(true);
 
         Time.timeScale = 1f;
 
@@ -68,6 +73,7 @@ public class PauseMenu : MonoBehaviour
         UpdateGoldDisplay();
 
         pauseMenuUI.SetActive(true);
+        escHint.SetActive(false);
 
         Time.timeScale = 0f;
 

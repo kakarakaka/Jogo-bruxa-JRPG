@@ -35,11 +35,16 @@ public class BossCutsceneController : MonoBehaviour
         }
     }
 
+
     public void StartCutscene(
-        Texture image,
-        string[] lines,
-        Action finishCallback)
+       Texture image,
+       string[] lines,
+       Action finishCallback)
     {
+        Debug.Log(
+            "Texto recebido: "
+            + lines[0]);
+
         panel.SetActive(true);
 
         cutsceneImage.texture = image;
@@ -52,6 +57,10 @@ public class BossCutsceneController : MonoBehaviour
 
         dialogueText.text =
             currentLines[0];
+
+        Debug.Log(
+            "BossCutscene definiu texto: "
+            + dialogueText.text);
     }
 
     void NextLine()
